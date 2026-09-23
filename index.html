@@ -1,0 +1,692 @@
+<!-- krai-deploy-test-20260923 -->
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="Календарь и резерв контента KRAI. Reels, фото и сторис: сохранить идею без даты, затем перенести в календарь." name="description"/>
+<meta content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'" http-equiv="Content-Security-Policy"/>
+<title>KRAI — контент-планер с резервом</title>
+<style>
+:root{--bg:#f4f4f0;--surface:#fff;--text:#242921;--muted:#727a6d;--line:#e3e7df;--line2:#eef0eb;--dark:#273e31;--accent:#e4efcd;--reel:#6752a1;--reel-bg:#f3effa;--photo:#337359;--photo-bg:#ebf5ef;--story:#9a6629;--story-bg:#fcf3e6;--shadow:0 18px 65px #26372818;--radius:14px;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{cursor:pointer}button,a,input,textarea,summary{outline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #688851}button{color:inherit}button:disabled{opacity:.35;cursor:default}button svg{pointer-events:none}svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}button{border:0;background:none}a{color:var(--dark)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.topbar{height:68px;background:#fff;border-bottom:1px solid var(--line);padding:0 32px;display:flex;align-items:center;gap:24px}.brand{font-size:26px;font-weight:850;letter-spacing:-1.6px;text-decoration:none;color:var(--dark);display:flex;align-items:center;gap:10px}.brand-mark{width:29px;height:29px;display:grid;place-items:center;background:var(--dark);color:#e6efdc;border-radius:8px;font-size:17px;letter-spacing:-1px}.app-name{border-left:1px solid var(--line);padding-left:22px;color:#727b6e;font-size:12px;letter-spacing:.02em}.top-actions{margin-left:auto;display:flex;align-items:center;gap:9px}.save-state{display:flex;gap:6px;align-items:center;font-size:11px;color:#66795c;margin-right:10px}.save-dot{height:6px;width:6px;border-radius:50%;background:#7c9765}.save-state.bad{color:#a35b26}.save-state.bad .save-dot{background:#b17735}.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 15px;border:1px solid var(--line);background:#fff;border-radius:9px;font-size:12px;font-weight:600;white-space:nowrap;min-height:36px}.btn:hover{background:#f0f3eb}.btn-solid{background:var(--dark);border-color:var(--dark);color:#fff}.btn-solid:hover{background:#3a5142}.btn-soft{background:#eef2e7;border-color:#e1e7d8}.btn-danger{color:#a34137;border-color:#eededb;background:#fff}.btn-danger:hover{background:#fdf0ee}.icon-btn{width:34px;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0}.icon-btn:hover{background:#edf1e7;color:var(--dark)}.toolbar-menu{position:relative}.menu{position:absolute;right:0;top:calc(100% + 8px);min-width:235px;padding:6px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line);border-radius:12px;z-index:35}.menu button{width:100%;text-align:left;padding:10px;display:flex;align-items:center;gap:9px;border-radius:7px;font-size:12px}.menu button:hover{background:#f0f3eb}.menu hr{border:0;border-top:1px solid var(--line2);margin:4px 0}
+main{max-width:2000px;margin:0 auto;padding:27px 28px 28px}.monthbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:19px}.month-title-row{display:flex;align-items:center;gap:15px}.month-title{font-size:34px;line-height:1.15;letter-spacing:-1.2px;font-weight:680;margin:0}.month-title span{color:#97a08f;font-weight:430}.month-controls{display:flex;align-items:center;gap:1px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:2px}.month-controls .icon-btn{width:28px;height:29px}.month-choose{padding:6px 7px;display:inline-flex;align-items:center;color:var(--muted);border-radius:7px}.month-choose:hover{background:#f0f3eb}.month-sub{font-size:12px;color:var(--muted);margin:9px 0 0}.month-right{display:flex;align-items:center;gap:9px}.segmented{display:flex;background:#e9ede3;padding:3px;border-radius:10px;gap:1px}.segmented button{padding:7px 11px;display:flex;align-items:center;gap:6px;font-size:12px;color:#7c8374;border-radius:7px;min-height:32px}.segmented button.active{background:#fff;color:#293a2a;box-shadow:0 1px 4px #2c3c2410}.month-picker-pop{position:absolute;top:46px;left:0;width:235px;padding:14px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line);border-radius:12px;z-index:30}.month-picker-wrap{position:relative}.month-picker-pop label{font-size:12px;display:block;margin-bottom:8px}.month-picker-pop input{width:100%;padding:9px;border:1px solid var(--line);border-radius:7px;color:var(--text)}
+.overview{display:grid;grid-template-columns:repeat(4,1fr) 1.2fr;gap:10px;margin-bottom:17px}.stat{border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:#fff;display:flex;align-items:center;gap:12px;text-align:left;min-width:0}.stat:hover{border-color:#bbc7af}.stat.active{border-color:#728362;box-shadow:0 0 0 1px #72836214}.stat-icon{width:35px;height:35px;background:#eff2e8;border-radius:10px;display:grid;place-items:center;color:#60754e;flex-shrink:0}.stat-icon.reel{color:var(--reel);background:var(--reel-bg)}.stat-icon.photo{color:var(--photo);background:var(--photo-bg)}.stat-icon.story{color:var(--story);background:var(--story-bg)}.stat-number{font-size:26px;letter-spacing:-.8px;font-weight:670;line-height:1}.stat-label{font-size:11px;color:var(--muted);margin-top:5px}.coverage{display:flex;flex-direction:column;justify-content:center;gap:8px;background:#edf2e3;border:1px solid #e1e8d8;border-radius:12px;padding:13px 17px;min-width:0}.coverage-line{display:flex;justify-content:space-between;gap:7px;font-size:11px;color:#6f7b60}.coverage-line strong{color:#415734;font-weight:650}.coverage-track{height:4px;border-radius:2px;background:#dce5ce;overflow:hidden}.coverage-track span{display:block;height:100%;background:#778e5b;transition:width .2s}.coverage-note{font-size:10px;color:#829171}
+.filters{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:13px}.search{position:relative;flex:0 1 280px}.search svg{position:absolute;left:11px;top:10px;width:16px;height:16px;color:#8f9885}.search input{width:100%;padding:10px 28px 10px 35px;background:white;border:1px solid var(--line);border-radius:9px;font-size:12px;height:38px}.search .clear-search{position:absolute;right:5px;top:5px;width:27px;height:27px;display:flex;align-items:center;justify-content:center;color:#8b9480}.filter-chip{display:flex;align-items:center;gap:6px;background:#e6eddc;border:1px solid #d4dfc5;border-radius:7px;padding:8px 10px;font-size:11px}.filter-chip svg{width:13px;height:13px}.filters-spacer{flex:1}.text-toggle{display:flex;align-items:center;gap:6px;font-size:11px;color:#7b8472;padding:8px 9px;border:1px solid transparent;border-radius:8px}.text-toggle.active{background:#e8eedf;border-color:#dce5cf;color:#506541}.text-toggle svg{width:16px;height:16px}.results-note{font-size:11px;color:#788271}.undo-group{display:flex;border-left:1px solid var(--line);padding-left:7px;gap:0}.helper-bar{display:flex;justify-content:space-between;gap:12px;color:#919887;font-size:10px;margin:4px 2px 12px}.helper-bar strong{font-weight:500;color:#6d7c61}.mobile-hint{display:none}
+.calendar-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:white;scrollbar-width:thin}.weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#f9faf6;border-bottom:1px solid var(--line);min-width:1030px}.weekday{padding:12px 12px;font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:600;color:#8b9382}.weekday.weekend{color:#a0a694}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:1030px;align-items:stretch}.day{min-width:0;min-height:290px;padding:10px 8px 9px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);background:#fff;position:relative}.day:nth-child(7n){border-right:0}.day.ghost{background:#f8f9f5}.day.weekend{background:#fcfdf9}.day.today{box-shadow:inset 0 0 0 1px #829b68}.day.drag-over{background:#eef4e3;box-shadow:inset 0 0 0 2px #789361}.day-header{display:flex;align-items:center;gap:4px;margin:0 1px 9px;min-height:26px}.day-date{font-size:15px;font-weight:650;min-width:26px;text-align:center;border-radius:6px;padding:4px}.day-date:hover{background:#edf2e4}.day-date.today{background:#536a41;color:#fff}.day-unit-count{font-size:9px;color:#a0a694}.day-add{margin-left:auto;width:25px;height:25px;border-radius:7px;background:#f0f4ea;color:#81916f;display:grid;place-items:center;opacity:.7}.day-add svg{height:14px;width:14px}.day:hover .day-add,.day-add:focus-visible{opacity:1;background:#e5eed8;color:#496133}.day-items{display:flex;flex-direction:column;gap:7px}.content-card{padding:9px 10px 10px;background:var(--reel-bg);border:1px solid #eae2f5;border-radius:9px;cursor:pointer;position:relative;transition:box-shadow .15s,transform .15s;touch-action:pan-y}.content-card:hover{box-shadow:0 3px 12px #2432200e;border-color:#d0c6df}.content-card:active{cursor:grabbing}.content-card.photo{background:var(--photo-bg);border-color:#dbeadf}.content-card.story{background:var(--story-bg);border-color:#f0e4cf}.content-card.photo:hover{border-color:#b8d3bf}.content-card.story:hover{border-color:#dec698}.content-card.dragging{opacity:.35}.content-card.drop-before:before{content:"";height:3px;background:#6b8750;position:absolute;left:0;right:0;top:-6px;border-radius:2px}.card-meta{display:flex;align-items:center;justify-content:space-between;gap:5px;color:var(--reel);font-size:9px;margin-bottom:6px;min-height:14px}.photo .card-meta{color:var(--photo)}.story .card-meta{color:var(--story)}.card-type{display:flex;gap:4px;align-items:center;font-weight:650;letter-spacing:.015em}.card-type svg{width:12px;height:12px;stroke-width:1.8}.card-time{font-size:9px;opacity:.85}.card-title{font-size:13px;font-weight:650;line-height:1.4;overflow-wrap:anywhere}.card-desc{font-size:11.5px;line-height:1.5;color:#686272;margin:5px 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}.photo .card-desc{color:#566d5e}.story .card-desc{color:#796649}.show-full .card-desc{display:block;overflow:visible;-webkit-line-clamp:unset}.empty-day{padding:55px 4px 10px;text-align:center;font-size:11px;color:#b0b7a7}.empty-day button{color:#7d916a;font-size:11px;padding:8px}.ghost .ghost-date{font-size:14px;color:#b3bbab;padding:5px}.ghost-month{font-size:10px;margin-left:4px;color:#bec5b7}.ghost .ghost-label{font-size:10px;color:#bac2b2;margin:60px 6px 0;line-height:1.6}.calendar-empty{padding:40px;line-height:1.7;color:var(--muted)}
+.agenda{display:flex;flex-direction:column;gap:12px}.agenda-day{background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:120px 1fr;overflow:hidden}.agenda-date{padding:17px 18px;background:#f9faf6;border-right:1px solid var(--line2)}.agenda-num{font-size:28px;font-weight:650;letter-spacing:-1px}.agenda-weekday{font-size:11px;color:var(--muted);margin:4px 0 12px}.agenda-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:9px;padding:12px;align-items:start}.agenda-items .card-title{font-size:13px}.agenda-items .card-desc{display:block;font-size:11px}.agenda-items .content-card{min-height:135px}.agenda-items .card-meta{font-size:10px}.agenda-items .card-meta svg{width:14px;height:14px}
+.footer{display:flex;justify-content:space-between;gap:15px;margin:20px 2px 0;color:#97a08c;font-size:10px;line-height:1.6}.footer button{font-size:10px;color:#6b7c5b;text-decoration:underline;text-underline-offset:3px}.storage-warning{margin:0 0 16px;background:#fff1da;border:1px solid #eed9b3;border-radius:10px;padding:12px;font-size:12px;line-height:1.5;color:#8d632a}
+dialog{border:0;color:var(--text);padding:0;background:#fff;box-shadow:var(--shadow);max-height:94dvh;overflow:auto}dialog::backdrop{background:#24322245;backdrop-filter:blur(2px)}#editor{margin:0 0 0 auto;width:min(490px,100vw);max-width:100vw;height:100dvh;max-height:100dvh;border-radius:20px 0 0 20px;overflow:auto}#editor[open]{display:flex;flex-direction:column}.editor-top{padding:24px 26px 17px;border-bottom:1px solid var(--line2);display:flex;align-items:start;gap:10px}.editor-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:#98a08f;margin-bottom:7px}.editor-title{font-size:23px;letter-spacing:-.65px;font-weight:650;margin:0}.editor-top .icon-btn{margin-left:auto}.editor-form{display:flex;flex-direction:column;flex:1}.editor-body{padding:21px 26px 24px;flex:1}.type-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}.type-option{border:1px solid var(--line);padding:12px 8px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px}.type-option.reel.active{color:var(--reel);background:var(--reel-bg);border-color:#b9a6d8}.type-option.photo.active{color:var(--photo);background:var(--photo-bg);border-color:#93bca2}.type-option.story.active{color:var(--story);background:var(--story-bg);border-color:#d3b279}.form-row{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}.field{margin-bottom:18px}.field-label{display:block;font-size:12px;font-weight:600;margin-bottom:8px}.optional{font-size:10px;color:#a0a792;font-weight:400;margin-left:4px}.field input,.field textarea{width:100%;border:1px solid #dfe5d8;border-radius:9px;padding:11px 12px;background:#fcfdf9;font-size:13px;color:var(--text);min-height:42px}.field textarea{resize:vertical;line-height:1.5}.field input:focus,.field textarea:focus{background:#fff;border-color:#789265;outline:1px solid #789265}.title-field{font-size:15px!important;font-weight:550}.field-hint{font-size:10px;line-height:1.6;color:#97a18a;margin-top:6px}.additional-fields{border-top:1px solid var(--line2);margin-top:4px}.additional-fields summary{font-size:11px;color:#748165;cursor:pointer;padding:15px 0}.additional-fields .field{margin-bottom:14px}.model-suggestions{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.model-suggestions button{font-size:10px;border:1px solid #dfe6d6;border-radius:6px;padding:5px 7px;color:#7b8a6a;background:#f4f7ee}.related{border-top:1px solid var(--line2);padding-top:17px;margin-top:5px}.related-title{font-size:11px;color:#8c9780;margin-bottom:9px}.related-buttons{display:flex;gap:7px}.related-buttons .btn{font-size:10px;flex:1;padding:9px 6px}.related-buttons .btn svg{width:14px;height:14px}.editor-foot{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:16px 26px;display:flex;align-items:center;gap:8px;z-index:4}.editor-foot .save-btn{margin-left:auto;padding:11px 20px}.editor-foot .icon-btn{border:1px solid var(--line)}.delete-icon{color:#b0786c}.editor-error{color:#ac4e3a;font-size:12px;margin-bottom:12px}.linked-note{font-size:10px;color:#7c8e6b;background:#f2f6eb;padding:8px 10px;border-radius:7px;margin:0 0 15px;line-height:1.5}
+.dialog-card{width:min(840px,calc(100vw - 36px));border-radius:18px;margin:auto}.dialog-head{display:flex;align-items:start;gap:16px;padding:25px 26px 19px;border-bottom:1px solid var(--line2)}.dialog-head h2{font-size:24px;letter-spacing:-.7px;margin:0 0 6px;font-weight:650}.dialog-head p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.dialog-head .icon-btn{margin-left:auto}.dialog-body{padding:21px 26px}.dialog-foot{padding:16px 26px;border-top:1px solid var(--line2);display:flex;align-items:center;justify-content:flex-end;gap:8px}.stats-note{background:#f1f5ea;border-radius:10px;padding:12px 14px;font-size:11px;line-height:1.65;color:#6c8058;margin-bottom:17px}.stats-table{width:100%;border-collapse:collapse;font-size:12px}.stats-table th{text-align:right;padding:11px 9px;border-bottom:1px solid var(--line);font-weight:500;color:#89957c;font-size:10px;position:sticky;top:0;background:#fff}.stats-table td{text-align:right;padding:11px 9px;border-bottom:1px solid var(--line2)}.stats-table th:first-child,.stats-table td:first-child{text-align:left}.stats-table td:first-child button{font-size:12px;text-align:left;padding:0;color:#405733;font-weight:550}.stats-table td:first-child button:hover{text-decoration:underline}.stats-table .col-total{font-weight:650;background:#fafcf6}.stats-table .cat{font-size:9px;color:#a2aa98;display:block;margin-top:2px}.stat-table-wrap{max-height:55vh;overflow:auto}.mini-type.reel{color:var(--reel)}.mini-type.photo{color:var(--photo)}.mini-type.story{color:var(--story)}.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.help-grid h3{font-size:13px;margin:0 0 8px}.help-grid p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}.help-callout{margin-top:22px;padding:14px 16px;border-radius:10px;background:#fff4e3;color:#92703b;font-size:12px;line-height:1.7}.import-box{border:1px dashed #bbcaae;background:#f7faf3;border-radius:12px;padding:20px;text-align:center}.import-box p{font-size:12px;color:var(--muted);line-height:1.6}.import-preview{background:#f0f5e7;padding:16px;border-radius:10px;font-size:13px;line-height:1.7;margin-top:16px}.error-text{color:#af4c3d;font-size:12px;line-height:1.6}.day-detail-items{display:flex;flex-direction:column;gap:10px}.day-detail-items .card-title{font-size:15px}.day-detail-items .card-desc{display:block;font-size:12px}.day-detail-items .card-meta{font-size:10px}.day-detail-items .content-card{padding:14px 16px}.day-dialog-actions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#263d2e;color:#fff;border-radius:11px;box-shadow:0 8px 24px #1a2a1925;padding:13px 17px;font-size:12px;z-index:100;display:flex;align-items:center;gap:15px;max-width:calc(100vw - 25px)}.toast button{color:#dae9bb;text-decoration:underline;font-size:12px;white-space:nowrap}.toast[hidden]{display:none}.dirty-star{color:#bc8d3d;font-size:12px;padding-left:6px}
+@media(min-width:1550px){.card-title{font-size:13px}.card-desc{font-size:11.5px}.card-meta{font-size:10px}.day{padding:11px 11px 12px}.day-items{gap:9px}.content-card{padding:11px 12px}.day{min-height:310px}}
+@media(max-width:1100px){.topbar{padding:0 18px;gap:17px}.app-name{display:none}main{padding:23px 18px}.month-title{font-size:29px}.overview{grid-template-columns:repeat(4,1fr)}.coverage{display:none}.save-state{margin-right:0}.month-right .btn{padding:9px 10px}.mobile-hint{display:inline}.desktop-hint{display:none}.helper-bar{font-size:9px}}
+@media(max-width:760px){.topbar{height:59px;padding:0 12px;gap:8px}.brand{font-size:23px}.brand-mark{display:none}.save-state{font-size:0;gap:0;margin-right:3px}.save-dot{width:6px;height:6px}.top-actions{gap:4px}.top-actions .btn{font-size:11px;padding:8px 10px;gap:5px}.top-actions .btn svg{width:14px;height:14px}.download-label{display:none}.top-actions .new-btn{padding:8px 10px}.top-actions .new-btn .new-label{display:none}main{padding:21px 12px}.monthbar{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:14px}.month-title{font-size:31px}.month-title-row{gap:10px}.month-sub{font-size:11px}.month-right{width:100%;justify-content:space-between}.overview{gap:6px;margin-bottom:13px}.stat{padding:11px 8px;gap:7px;display:block}.stat-icon{display:none}.stat-number{font-size:23px}.stat-label{font-size:9px;margin-top:6px}.filters{gap:5px}.search{flex:1 1 190px}.filters-spacer{display:none}.results-note{font-size:10px}.undo-group{margin-left:auto}.text-toggle{font-size:10px;padding:8px 6px}.helper-bar{display:none}.agenda-day{grid-template-columns:56px 1fr;border-radius:11px}.agenda-date{padding:12px 5px;text-align:center}.agenda-num{font-size:23px}.agenda-weekday{font-size:9px}.agenda-date .btn{width:28px;min-height:28px;padding:4px;font-size:0}.agenda-items{padding:8px;gap:8px;display:flex;flex-direction:column}.agenda-items .content-card{width:100%;min-height:0;padding:10px 11px}.agenda-items .card-title{font-size:13px}.agenda-items .card-desc{font-size:11px}.agenda{gap:8px}.footer{font-size:9px;flex-direction:column;gap:6px}.dialog-card{width:calc(100vw - 16px);max-height:95dvh}.dialog-head{padding:20px 18px 15px}.dialog-body{padding:18px}.dialog-foot{padding:13px 18px}.dialog-head h2{font-size:21px}.help-grid{grid-template-columns:1fr;gap:20px}.editor-top{padding:21px 20px 15px}.editor-body{padding:19px 20px}.editor-foot{padding:13px 20px}.stats-table{font-size:11px}.stats-table td,.stats-table th{padding:10px 6px}.stats-table td:first-child button{font-size:11px}.calendar-scroll{border-radius:10px}.filter-chip{font-size:10px}.toast{font-size:11px;bottom:13px}#editor{border-radius:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{@page{size:A3 landscape;margin:10mm}body{background:#fff}.topbar,.filters,.helper-bar,.month-controls,.month-right,.footer,.day-add,.empty-day button,.toast,dialog,.storage-warning,.month-picker-pop{display:none!important}main{max-width:none;padding:0}.monthbar{margin-bottom:12px}.month-title{font-size:28px}.month-sub{font-size:10px}.overview{margin-bottom:12px;grid-template-columns:repeat(4,1fr) 1.2fr}.stat{padding:8px 12px}.stat-number{font-size:22px}.stat-icon{display:none}.coverage{display:flex}.calendar-scroll{overflow:visible;border-radius:0}.calendar-grid,.weekdays{min-width:0}.day{padding:7px;min-height:0;break-inside:avoid;page-break-inside:avoid}.day.ghost{background:#fafafa}.content-card{break-inside:avoid;padding:7px;border-radius:5px;box-shadow:none;print-color-adjust:exact;-webkit-print-color-adjust:exact}.card-title{font-size:9px}.card-desc{font-size:8px;display:block;line-height:1.35;overflow:visible;-webkit-line-clamp:unset}.card-meta{font-size:7px}.day-date{font-size:12px}.day-header{margin-bottom:5px}.weekday{font-size:8px;padding:7px}.agenda-day{break-inside:avoid}.agenda-items{display:grid;grid-template-columns:repeat(3,1fr)}.agenda-date .btn{display:none}.agenda-items .content-card{min-height:0}.agenda-items .card-title{font-size:10px}.agenda-items .card-desc{font-size:9px}.coverage-note{font-size:8px}}
+
+/* v4 — undated reserve. Same visual language, separate counting and storage. */
+.planning-workspace{display:grid;grid-template-columns:minmax(0,1fr) 302px;gap:18px;align-items:start}
+.planning-workspace.reserve-hidden{grid-template-columns:minmax(0,1fr)}
+#calendar-root{min-width:0}.month-right{flex-wrap:wrap}.reserve-toggle.active{border-color:#bacdaa;background:#eaf1df;color:#395533}
+.reserve-badge{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:7px;background:#dde8cc;color:#405b35;padding:0 6px;font-size:11px;font-weight:650;font-variant-numeric:tabular-nums}
+.reserve-panel{background:#fafbf7;border:1px solid #d7e0cc;border-radius:14px;position:sticky;top:16px;max-height:calc(100dvh - 32px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 5px 25px #33432006}
+.reserve-heading{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 17px 0}.reserve-kicker{color:#8a957d;font-size:9px;letter-spacing:.12em;margin-bottom:9px}.reserve-heading h2{display:flex;align-items:center;gap:9px;font-size:23px;font-weight:650;letter-spacing:-.65px;margin:0}.reserve-heading h2 svg{width:22px;height:22px;color:#6a8156}.reserve-heading .icon-btn{width:26px;height:26px;margin-top:-5px}
+.reserve-intro{padding:0 17px;margin:9px 0 16px;font-size:11px;line-height:1.65;color:#819075}
+.quick-reserve{margin:0 13px 15px;background:#fff;border:1px solid #dce5d3;border-radius:11px;padding:12px;flex-shrink:0;box-shadow:0 3px 8px #36452604}
+.quick-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px}.quick-top label{font-size:11px;font-weight:650;color:#536848}.quick-top select{font-size:10px;border:1px solid #e5e9df;background:#f6f8f0;border-radius:6px;color:#687b57;padding:5px;max-width:105px}
+.quick-reserve input,.quick-reserve textarea{width:100%;font-family:var(--sans);font-size:12px;line-height:1.5;border:1px solid #e4e8dd;background:#fff;border-radius:7px;padding:9px 10px;color:var(--text);min-width:0}.quick-reserve input::placeholder{font-size:10px;color:#9ba48f}.quick-reserve textarea{resize:vertical;min-height:65px;margin-top:8px}.quick-reserve details{margin-top:8px}.quick-reserve summary{font-size:10px;color:#849175;cursor:pointer;line-height:1.5}.quick-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px}.quick-actions .btn{font-size:11px;padding:8px 12px;min-height:33px}.quick-actions svg{width:14px;height:14px}.quick-more{font-size:10px;color:#829171;padding:7px 0;text-decoration:underline;text-underline-offset:3px}
+.reserve-filter-section{border-top:1px solid #e4eadd;padding:12px 13px 10px;flex-shrink:0}.reserve-search{width:100%}.reserve-search input{height:33px;font-size:11px;background:#fff;padding:8px 8px 8px 31px}.reserve-search svg{width:14px;height:14px;top:10px;left:10px}.reserve-type-filters{display:flex;align-items:center;gap:4px;margin-top:8px;flex-wrap:wrap}.reserve-type-filters button{font-size:10px;border:1px solid transparent;border-radius:6px;padding:6px 5px;color:#829275;display:flex;gap:4px;align-items:center}.reserve-type-filters button.active{background:#e6eddc;color:#45633a;border-color:#dce6cd}.reserve-type-filters button span{font-size:9px;opacity:.7}.reserve-type-filters button:hover{background:#eaf0e3}.reserve-filter-section .filter-chip{margin-top:7px;font-size:10px}.reserve-found{margin:7px 0 0;color:#8d9981;font-size:10px}
+.reserve-items{display:flex;flex-direction:column;gap:9px;padding:1px 13px 15px;overflow-y:auto;min-height:130px;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7d3bc transparent}
+.reserve-empty{border:1px dashed #cbd9bd;background:#f3f7ec;border-radius:10px;padding:25px 16px;text-align:center;color:#879777;margin-top:2px}.reserve-empty-icon{height:39px;width:39px;border-radius:11px;background:#e7efdb;display:grid;place-items:center;margin:0 auto 13px;color:#829a69}.reserve-empty-icon svg{width:23px;height:23px}.reserve-empty strong{font-size:11px;font-weight:650;display:block;color:#6a7e5a}.reserve-empty p{font-size:11px;line-height:1.7;margin:8px 0 0}.reserve-empty.compact{font-size:11px;line-height:1.6;padding:22px 15px}.reserve-empty button{display:block;margin:10px auto 0;text-decoration:underline;font-size:11px;color:#5d784b}
+.reserve-drop-foot{display:flex;align-items:center;justify-content:center;gap:7px;border-top:1px dashed #d5e0c9;color:#8e9b81;font-size:9px;padding:11px 13px;background:#f3f6ec;flex-shrink:0}.reserve-drop-foot svg{height:14px;width:14px}.reserve-panel.drag-over{box-shadow:inset 0 0 0 2px #809964,0 10px 32px #58663c18;background:#f0f6e5}.drag-active .reserve-drop-foot{background:#e2edce;color:#4a6336}.drag-active .reserve-empty{border-color:#7e9a5f}
+.card-meta-right{display:inline-flex;align-items:center;gap:4px}.card-stash{display:inline-flex;align-items:center;justify-content:center;border-radius:4px;height:19px;width:21px;color:currentColor;opacity:.5;padding:2px}.card-stash svg{width:13px;height:13px}.card-stash:hover,.content-card:hover .card-stash,.card-stash:focus-visible{opacity:1;background:#ffffffa8}.card-title,.card-desc{overflow-wrap:anywhere}.reserve-card{padding:12px!important}.reserve-card .card-title{font-size:12px!important;line-height:1.45}.reserve-card .card-desc{font-size:10.5px!important;line-height:1.55;-webkit-line-clamp:3}.reserve-card .card-meta{font-size:10px!important}.reserve-card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:9px}.reserve-card-tags span{font-size:9px;padding:3px 5px;border-radius:4px;background:#ffffffa0;color:#8b8c83}.reserve-card-bottom{display:flex;align-items:center;gap:7px;justify-content:flex-end;margin-top:11px;border-top:1px solid #00000008;padding-top:8px;flex-wrap:wrap}.last-planned{font-size:9px;color:#99968d;margin-right:auto;line-height:1.4}.schedule-card-btn{display:inline-flex;gap:5px;align-items:center;font-size:10px;color:var(--dark);background:#ffffffbf;border:1px solid #0000000b;border-radius:6px;padding:6px 8px}.schedule-card-btn svg{width:12px;height:12px}.schedule-card-btn:hover{background:#fff;border-color:#c2cbb9}
+.placement-control{margin-bottom:18px}.placement-label{font-size:11px;color:#6f7e61;margin-bottom:8px;font-weight:600}.placement-options{display:flex;padding:4px;border:1px solid #e2e8d9;border-radius:10px;background:#f3f6ed;gap:4px}.placement-options button{display:flex;gap:7px;align-items:center;justify-content:center;border-radius:7px;padding:10px 12px;flex:1;color:#92a080;font-size:12px}.placement-options button.active{background:#fff;color:#456039;box-shadow:0 1px 5px #3d4e2410}.placement-options button svg{width:16px;height:16px}.placement-control p{font-size:10px;line-height:1.6;color:#8f9b82;margin:8px 1px 0}.schedule-dialog{width:min(480px,calc(100vw - 24px))}.schedule-explainer{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 19px}.schedule-dialog .dialog-head h2{font-size:23px}.schedule-dialog .dialog-head p{overflow-wrap:anywhere}.schedule-dialog .dialog-foot{flex-wrap:wrap}.stats-scope{margin-bottom:16px;display:inline-flex}.stats-scope button{font-size:11px}.migration-hint{display:flex;align-items:center;gap:10px;justify-content:space-between;font-size:10px;color:#8b987d;margin:0 0 12px;border:1px solid #e4e9dc;border-radius:8px;padding:6px 9px;background:#f7f9f3}.migration-hint button:not(.icon-btn){font-size:inherit;color:#617c48;text-decoration:underline;text-underline-offset:3px;padding:0}.migration-hint .icon-btn{width:24px;height:24px}.migration-hint svg{width:13px;height:13px}
+@media(min-width:1101px) and (max-width:1490px){.planning-workspace{grid-template-columns:minmax(0,1fr) 276px;gap:12px}.calendar-grid,.weekdays{min-width:930px}.month-title{font-size:30px}.month-right{gap:6px}.month-right .btn{font-size:11px;padding:9px 10px}.reserve-heading{padding:15px 14px 0}.reserve-intro{padding:0 14px;font-size:10px}.quick-reserve{margin:0 11px 12px;padding:10px}.reserve-type-filters button{padding:5px 4px}.reserve-items{padding-right:11px;padding-left:11px}.reserve-filter-section{padding-left:11px;padding-right:11px}}
+@media(max-width:1100px){.planning-workspace{display:flex;flex-direction:column;gap:15px}.planning-workspace #calendar-root{width:100%;order:2}.reserve-panel{order:1;width:100%;position:relative;top:auto;max-height:660px;display:grid;grid-template-columns:minmax(230px,.7fr) minmax(0,1fr);grid-template-rows:auto auto auto 1fr}.reserve-heading{grid-column:1;padding-top:16px}.reserve-intro{grid-column:1;margin-bottom:12px}.quick-reserve{grid-column:1;grid-row:3/5;align-self:start}.reserve-filter-section{grid-column:2;grid-row:1/3;align-self:start;border-top:0;border-left:1px solid #e3e9dc;padding-top:16px}.reserve-items{grid-column:2;grid-row:3/5;max-height:300px}.reserve-drop-foot{grid-column:1/-1}.reserve-empty{padding:22px 15px}.month-right{justify-content:flex-start}.reserve-toggle{margin-right:auto}}
+@media(max-width:760px){.month-right{gap:6px;justify-content:space-between}.month-right .btn{font-size:11px;padding:8px}.month-right .btn svg{width:15px;height:15px}.month-right .segmented button{font-size:11px;padding:7px 8px}.reserve-toggle{margin-right:0}.reserve-panel{display:flex;max-height:700px;border-radius:12px}.reserve-heading{padding:15px 15px 0}.reserve-heading h2{font-size:22px}.reserve-intro{padding:0 15px;margin:7px 0 11px}.quick-reserve{margin:0 12px 11px;padding:10px}.quick-top{margin-bottom:8px}.quick-reserve input{font-size:13px;min-height:40px}.quick-reserve input::placeholder{font-size:11px}.quick-reserve summary{font-size:11px}.quick-reserve select{font-size:12px;padding:5px}.quick-actions .btn{min-height:36px}.quick-more{font-size:11px}.reserve-filter-section{border-left:0;border-top:1px solid #e4eadd;padding:10px 12px 8px}.reserve-type-filters button{font-size:11px;padding:6px 8px}.reserve-items{min-height:100px;max-height:280px;padding:0 12px 12px}.reserve-card .card-title{font-size:13px!important}.reserve-empty{padding:14px 17px}.reserve-empty-icon{display:none}.reserve-empty p{margin-top:6px;font-size:11px}.reserve-drop-foot{display:none}.migration-hint{font-size:10px;line-height:1.55;padding:7px 9px}.card-stash{opacity:.8;width:27px;height:23px}.card-stash svg{width:14px;height:14px}.schedule-card-btn{min-height:34px;font-size:11px}.schedule-dialog .dialog-head h2{font-size:21px}.editor-foot{gap:6px;padding:12px 15px}.editor-foot .save-btn{padding:10px 12px;font-size:11px}.editor-foot #cancel-editor{font-size:11px;padding:10px}.stats-scope button{font-size:10px}.placement-options button{padding:10px 8px}.planning-workspace{gap:12px}}
+@media print{.planning-workspace{display:block}.reserve-panel,.migration-hint,.card-stash{display:none!important}.calendar-grid,.weekdays{min-width:0!important}.card-meta-right{gap:0}.reserve-toggle{display:none!important}}
+@media(max-width:760px){.quick-reserve,.reserve-filter-section{align-self:stretch}.reserve-panel{flex-shrink:0}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+<symbol id="i-plus" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></symbol>
+<symbol id="i-close" viewbox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></symbol>
+<symbol id="i-reel" viewbox="0 0 24 24"><rect height="18" rx="4" width="16" x="4" y="3"></rect><path d="M4 8h16M8 3l3 5m4-5 3 5"></path><path d="m10 12 5 3-5 3z"></path></symbol>
+<symbol id="i-photo" viewbox="0 0 24 24"><rect height="16" rx="3" width="18" x="3" y="4"></rect><circle cx="8" cy="9" r="1.5"></circle><path d="m4 17 5-5 4 4 3-4 5 5"></path></symbol>
+<symbol id="i-story" viewbox="0 0 24 24"><path d="M8 3.7A9 9 0 0 1 20.3 8M20.4 16A9 9 0 0 1 8 20.3M3.7 16A9 9 0 0 1 3.7 8"></path><circle cx="12" cy="12" r="4"></circle></symbol>
+<symbol id="i-grid" viewbox="0 0 24 24"><rect height="7" rx="1" width="7" x="3" y="3"></rect><rect height="7" rx="1" width="7" x="14" y="3"></rect><rect height="7" rx="1" width="7" x="3" y="14"></rect><rect height="7" rx="1" width="7" x="14" y="14"></rect></symbol>
+<symbol id="i-list" viewbox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></symbol>
+<symbol id="i-left" viewbox="0 0 24 24"><path d="m14 6-6 6 6 6"></path></symbol>
+<symbol id="i-right" viewbox="0 0 24 24"><path d="m10 6 6 6-6 6"></path></symbol>
+<symbol id="i-down" viewbox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></symbol>
+<symbol id="i-search" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></symbol>
+<symbol id="i-download" viewbox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"></path></symbol>
+<symbol id="i-upload" viewbox="0 0 24 24"><path d="M12 16V4m-5 5 5-5 5 5M4 16v4h16v-4"></path></symbol>
+<symbol id="i-copy" viewbox="0 0 24 24"><rect height="13" rx="2" width="12" x="8" y="8"></rect><path d="M16 8V3H3v13h5"></path></symbol>
+<symbol id="i-trash" viewbox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"></path></symbol>
+<symbol id="i-undo" viewbox="0 0 24 24"><path d="M4 10h10a6 6 0 0 1 0 12" transform="translate(0 -3)"></path><path d="m8 3-4 4 4 4"></path></symbol>
+<symbol id="i-redo" viewbox="0 0 24 24"><path d="M20 7H10a6 6 0 0 0 0 12M16 3l4 4-4 4"></path></symbol>
+<symbol id="i-chart" viewbox="0 0 24 24"><path d="M4 19V5m0 14h17M8 15v-4m5 4V7m5 8v-6"></path></symbol>
+<symbol id="i-more" viewbox="0 0 24 24"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></symbol>
+<symbol id="i-help" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 8.5a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16.5h.01"></path></symbol>
+<symbol id="i-text" viewbox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h16M4 20h10"></path></symbol>
+<symbol id="i-calendar" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 4h2"></path></symbol>
+<symbol id="i-print" viewbox="0 0 24 24"><path d="M7 8V3h10v5M7 17H3V8h18v9h-4M7 14h10v7H7zM17 11h.01"></path></symbol>
+<symbol id="i-reserve" viewbox="0 0 24 24"><path d="M4 4h16l2 10v6H2v-6L4 4zM2 14h6l2 3h4l2-3h6M8 8h8"></path></symbol></defs></svg>
+<header class="topbar">
+<div aria-label="KRAI" class="brand"><span class="brand-mark">K</span>KRAI</div>
+<div class="app-name">Контент-планер</div>
+<div class="top-actions">
+<span class="save-state" id="save-state" role="status"><span class="save-dot"></span><span id="save-label">Сохранено в браузере</span></span>
+<button class="btn" id="download-html" title="Скачать HTML со всеми текущими правками"><svg><use href="#i-download"></use></svg><span class="download-label">Скачать HTML</span></button>
+<div class="toolbar-menu">
+<button aria-expanded="false" aria-label="Файл и резервные копии" class="icon-btn" id="file-menu-toggle"><svg><use href="#i-more"></use></svg></button>
+<div class="menu" hidden="" id="file-menu">
+<button data-action="export-json"><svg><use href="#i-download"></use></svg>Резервная копия · JSON</button>
+<button data-action="import"><svg><use href="#i-upload"></use></svg>Загрузить план из файла</button>
+<button data-action="print"><svg><use href="#i-print"></use></svg>Распечатать календарь</button>
+<hr/><button data-action="help"><svg><use href="#i-help"></use></svg>Как пользоваться</button>
+</div>
+</div>
+<button class="btn btn-solid new-btn" id="global-add"><svg><use href="#i-plus"></use></svg><span class="new-label">Контент</span></button>
+</div>
+</header>
+<main>
+<div class="storage-warning" hidden="" id="storage-warning">Браузер не разрешил локальное сохранение. Сейчас правки остаются только в этой вкладке. Перед закрытием нажмите «Скачать HTML».</div>
+<section class="monthbar">
+<div>
+<div class="month-title-row">
+<h1 class="month-title" id="month-title">Октябрь <span>2026</span></h1>
+<div class="month-picker-wrap">
+<div class="month-controls">
+<button aria-label="Предыдущий месяц" class="icon-btn" id="prev-month"><svg><use href="#i-left"></use></svg></button>
+<button aria-label="Выбрать месяц" class="month-choose" id="choose-month"><svg><use href="#i-calendar"></use></svg></button>
+<button aria-label="Следующий месяц" class="icon-btn" id="next-month"><svg><use href="#i-right"></use></svg></button>
+</div>
+<div class="month-picker-pop" hidden="" id="month-picker-pop"><label for="month-picker">Перейти к месяцу</label><input id="month-picker" max="2100-12" min="2000-01" type="month" value="2026-10"/></div>
+</div>
+</div>
+<p class="month-sub" id="month-sub">Один день — вся его история. Ролики, фото и сторис рядом.</p>
+</div>
+<div class="month-right"><button aria-controls="reserve-panel" aria-expanded="true" class="btn btn-soft reserve-toggle" id="toggle-reserve"><svg><use href="#i-reserve"></use></svg>Резерв <span class="reserve-badge" id="reserve-toggle-count">0</span></button>
+<button class="btn" id="show-stats"><svg><use href="#i-chart"></use></svg>Модели и баланс</button>
+<div aria-label="Вид календаря" class="segmented">
+<button class="active" data-view="month" id="view-month"><svg><use href="#i-grid"></use></svg>Месяц</button>
+<button data-view="list" id="view-list"><svg><use href="#i-list"></use></svg>Список</button>
+</div>
+</div>
+</section>
+<section aria-label="Контент за месяц" class="overview">
+<button class="stat active" data-filter="all"><span class="stat-icon"><svg><use href="#i-grid"></use></svg></span><div><div class="stat-number" id="count-all">72</div><div class="stat-label">В плане на месяц</div></div></button>
+<button class="stat" data-filter="reel"><span class="stat-icon reel"><svg><use href="#i-reel"></use></svg></span><div><div class="stat-number" id="count-reel">72</div><div class="stat-label">Reels</div></div></button>
+<button class="stat" data-filter="photo"><span class="stat-icon photo"><svg><use href="#i-photo"></use></svg></span><div><div class="stat-number" id="count-photo">0</div><div class="stat-label">Фото / карусели</div></div></button>
+<button class="stat" data-filter="story"><span class="stat-icon story"><svg><use href="#i-story"></use></svg></span><div><div class="stat-number" id="count-story">0</div><div class="stat-label">Сторис / серии</div></div></button>
+<div class="coverage"><div class="coverage-line"><span>Дни с контентом</span><strong id="coverage-label">31 из 31</strong></div><div class="coverage-track"><span id="coverage-fill" style="width:100%"></span></div><div class="coverage-note" id="coverage-note">Весь месяц в работе</div></div>
+</section>
+<section aria-label="Поиск и настройки вида" class="filters">
+<div class="search"><svg><use href="#i-search"></use></svg><input aria-label="Поиск по контенту" autocomplete="off" id="search" placeholder="Найти тему, модель или идею…" type="search"/><button aria-label="Очистить поиск" class="clear-search" hidden="" id="clear-search">×</button></div>
+<button class="filter-chip" hidden="" id="model-filter"><span></span><svg><use href="#i-close"></use></svg></button>
+<span class="results-note" id="results-note"></span>
+<button class="text-toggle" hidden="" id="reset-filters">Сбросить фильтры</button>
+<span class="filters-spacer"></span>
+<button aria-pressed="false" class="text-toggle" id="full-text"><svg><use href="#i-text"></use></svg>Тексты целиком</button>
+<div class="undo-group"><button aria-label="Отменить" class="icon-btn" disabled="" id="undo" title="Отменить последнее действие"><svg><use href="#i-undo"></use></svg></button><button aria-label="Повторить" class="icon-btn" disabled="" id="redo" title="Повторить действие"><svg><use href="#i-redo"></use></svg></button></div>
+</section>
+<div class="helper-bar"><span class="desktop-hint"><strong>＋</strong> Добавить в день · Перетащить — перенести · <strong>Резерв</strong> — оставить на потом</span><span class="mobile-hint">Выберите «Список» для вертикального календаря</span><span>Фото = пост или карусель · Сторис = одна история или серия</span></div>
+<div class="migration-hint" id="migration-hint"><span>Уже правили прошлый файл? <button id="import-previous">Перенесите свой план</button> — поддерживаются HTML и JSON из v3.</span><button aria-label="Скрыть подсказку" class="icon-btn" id="dismiss-migration"><svg><use href="#i-close"></use></svg></button></div><div class="planning-workspace" id="planning-workspace"><section aria-label="Публикации месяца" id="calendar-root"></section>
+<aside aria-label="Резерв контента без даты" class="reserve-panel" data-drop-reserve="true" id="reserve-panel">
+<div class="reserve-heading"><div><div class="reserve-kicker">БЭКЛОГ КОНТЕНТА</div><h2><svg><use href="#i-reserve"></use></svg>Резерв <span class="reserve-badge" id="reserve-count">0</span></h2></div><button aria-label="Скрыть резерв" class="icon-btn" id="reserve-close" title="Скрыть резерв"><svg><use href="#i-close"></use></svg></button></div>
+<p class="reserve-intro">Без даты. Для любого месяца.<br/>Сохраните идею сейчас — поставьте в план позже.</p>
+<form class="quick-reserve" id="reserve-quick-form">
+<div class="quick-top"><label for="quick-type">Быстрая идея</label><select aria-label="Формат идеи" id="quick-type"><option value="reel">Reels</option><option value="photo">Фото</option><option value="story">Сторис</option></select></div>
+<label class="sr-only" for="quick-title">Тема для резерва</label><input autocomplete="off" id="quick-title" maxlength="240" placeholder="Например: M58 — детали подошвы" required="" type="text"/>
+<details id="quick-details"><summary>Добавить пояснение</summary><label class="sr-only" for="quick-desc">Что снять или рассказать</label><textarea id="quick-desc" maxlength="10000" placeholder="Кадры, мысль, короткое ТЗ…" rows="3"></textarea></details>
+<div class="quick-actions"><button class="quick-more" id="reserve-full-editor" type="button">Подробнее</button><button class="btn btn-solid" type="submit"><svg><use href="#i-plus"></use></svg>В резерв</button></div>
+</form>
+<div class="reserve-filter-section"><div class="search reserve-search"><svg><use href="#i-search"></use></svg><input aria-label="Поиск в резерве" autocomplete="off" id="reserve-search" placeholder="Найти в резерве…" type="search"/></div><div aria-label="Форматы в резерве" class="reserve-type-filters" id="reserve-type-filters"></div><button class="filter-chip" hidden="" id="reserve-model-filter"><span></span><svg><use href="#i-close"></use></svg></button><p class="reserve-found" hidden="" id="reserve-found"></p></div>
+<div aria-label="Идеи без даты" class="reserve-items" id="reserve-items"></div>
+<div class="reserve-drop-foot"><svg><use href="#i-reserve"></use></svg><span>Сюда можно перетащить карточку из календаря</span></div>
+</aside></div>
+<footer class="footer"><span>Работает без интернета. Правки сохраняются в этом браузере, а не в исходном HTML-файле.</span><span><button id="help-button">Как сохранить и передать план</button> · KRAI / планер 4.0</span></footer>
+</main>
+<dialog aria-labelledby="editor-heading" id="editor">
+<div class="editor-top"><div><div class="editor-eyebrow" id="editor-eyebrow">Новая публикация</div><h2 class="editor-title" id="editor-heading">Добавить контент</h2></div><button aria-label="Закрыть редактор" class="icon-btn" id="close-editor"><svg><use href="#i-close"></use></svg></button></div>
+<form class="editor-form" id="editor-form">
+<div class="editor-body">
+<div aria-label="Тип контента" class="type-selector" role="group">
+<button aria-pressed="true" class="type-option reel active" data-type="reel" type="button"><svg><use href="#i-reel"></use></svg>Reels</button>
+<button aria-pressed="false" class="type-option photo" data-type="photo" type="button"><svg><use href="#i-photo"></use></svg>Фото</button>
+<button aria-pressed="false" class="type-option story" data-type="story" type="button"><svg><use href="#i-story"></use></svg>Сторис</button>
+</div>
+<p class="linked-note" hidden="" id="linked-note"></p>
+<div class="placement-control"><div class="placement-label">Где хранить</div><div aria-label="Календарь или резерв" class="placement-options" role="group"><button aria-pressed="true" class="active" data-placement="calendar" type="button"><svg><use href="#i-calendar"></use></svg>В календаре</button><button aria-pressed="false" data-placement="reserve" type="button"><svg><use href="#i-reserve"></use></svg>В резерве</button></div><p id="placement-help">Выберите дату публикации.</p></div><div class="form-row" id="schedule-fields">
+<div class="field"><label class="field-label" for="field-date">Дата</label><input id="field-date" max="2100-12-31" min="2000-01-01" required="" type="date"/></div>
+<div class="field"><label class="field-label" for="field-time">Время <span class="optional">по желанию</span></label><input id="field-time" type="time"/></div>
+</div>
+<div class="field"><label class="field-label" for="field-title">Тема / заголовок</label><textarea class="title-field" id="field-title" maxlength="240" placeholder="Например: M58 — осенний обзор" required="" rows="2"></textarea></div>
+<div class="field"><label class="field-label" for="field-desc">Что делаем</label><textarea id="field-desc" maxlength="10000" placeholder="Идея, кадры, акценты — короткое ТЗ для команды." rows="5"></textarea></div>
+<details class="additional-fields" id="additional-fields"><summary>Модели для счётчика и ссылка на материалы</summary>
+<div class="field"><label class="field-label" for="field-models">Какие модели показываем</label><input autocomplete="off" id="field-models" maxlength="2000" placeholder="M58, XS4, S20" type="text"/><div class="field-hint">Через запятую. Если поле пустое, известные модели определим по заголовку. Здесь же можно указать категорию, например «Кожгалантерея».</div><div class="model-suggestions" id="model-suggestions"></div></div>
+<div class="field"><label class="field-label" for="field-link">Ссылка на материалы <span class="optional">по желанию</span></label><input id="field-link" maxlength="2000" placeholder="https://…" type="url"/><div class="field-hint">Ссылка на папку, референс или готовый материал. Медиафайлы в этот HTML не загружаются.</div></div>
+</details>
+<div class="related" hidden="" id="related"><div class="related-title">Создать ещё одну публикацию по этой теме</div><div class="related-buttons"><button class="btn" id="make-photo" type="button"><svg><use href="#i-photo"></use></svg>Фотопост по ролику</button><button class="btn" id="make-story" type="button"><svg><use href="#i-story"></use></svg>Сторис по ролику</button></div></div>
+<p class="editor-error" hidden="" id="editor-error" role="alert"></p>
+</div>
+<div class="editor-foot"><button aria-label="Удалить публикацию" class="icon-btn delete-icon" id="delete-content" title="Удалить публикацию" type="button"><svg><use href="#i-trash"></use></svg></button><button aria-label="Создать копию" class="icon-btn" id="duplicate-content" title="Создать копию" type="button"><svg><use href="#i-copy"></use></svg></button><button class="btn" id="cancel-editor" type="button">Отмена</button><button class="btn btn-solid save-btn" type="submit">Сохранить</button></div>
+</form>
+</dialog>
+<dialog aria-labelledby="schedule-heading" class="dialog-card schedule-dialog" id="schedule-dialog">
+<div class="dialog-head"><div><h2 id="schedule-heading">Поставить в календарь</h2><p id="schedule-item-title"></p></div><button aria-label="Закрыть" class="icon-btn" data-close="schedule-dialog"><svg><use href="#i-close"></use></svg></button></div>
+<form id="schedule-form"><div class="dialog-body"><p class="schedule-explainer">Карточка переместится из резерва в выбранный день. Текст, формат и модели сохранятся.</p><div class="form-row"><div class="field"><label class="field-label" for="schedule-date">Дата</label><input id="schedule-date" max="2100-12-31" min="2000-01-01" required="" type="date"/></div><div class="field"><label class="field-label" for="schedule-time">Время <span class="optional">по желанию</span></label><input id="schedule-time" type="time"/></div></div><button class="btn btn-soft" hidden="" id="schedule-previous" type="button"></button></div><div class="dialog-foot"><button class="btn" data-close="schedule-dialog" type="button">Отмена</button><button class="btn btn-solid" type="submit"><svg><use href="#i-calendar"></use></svg>Запланировать</button></div></form>
+</dialog>
+<dialog aria-labelledby="stats-heading" class="dialog-card" id="stats-dialog"><div class="dialog-head"><div><h2 id="stats-heading">Модели и баланс</h2><p id="stats-subtitle"></p></div><button aria-label="Закрыть" class="icon-btn" data-close="stats-dialog"><svg><use href="#i-close"></use></svg></button></div><div class="dialog-body"><div aria-label="Область подсчёта" class="stats-scope segmented"><button class="active" data-stats-scope="calendar" id="stats-calendar">Календарь месяца</button><button data-stats-scope="reserve" id="stats-reserve">Резерв · все месяцы</button></div><div class="stats-note">Одна модель в одной публикации = одно появление. Фото и сторис считаются отдельно. Резерв не прибавляется к плану месяца: выберите его отдельной вкладкой.</div><div class="stat-table-wrap" id="stats-table-wrap"></div></div><div class="dialog-foot"><span class="field-hint" id="stats-filter-hint" style="margin-right:auto">Нажмите на модель, чтобы увидеть её в календаре.</span><button class="btn" data-close="stats-dialog">Готово</button></div></dialog>
+<dialog aria-labelledby="day-heading" class="dialog-card" id="day-dialog"><div class="dialog-head"><div><h2 id="day-heading"></h2><p id="day-subtitle"></p></div><button aria-label="Закрыть" class="icon-btn" data-close="day-dialog"><svg><use href="#i-close"></use></svg></button></div><div class="dialog-body"><div class="day-dialog-actions"><button class="btn btn-soft" id="day-add-reel"><svg><use href="#i-reel"></use></svg>Reels</button><button class="btn btn-soft" id="day-add-photo"><svg><use href="#i-photo"></use></svg>Фото</button><button class="btn btn-soft" id="day-add-story"><svg><use href="#i-story"></use></svg>Сторис</button><button class="btn" id="copy-day"><svg><use href="#i-copy"></use></svg>Скопировать день</button></div><div class="day-detail-items" id="day-detail-items"></div></div></dialog>
+<dialog aria-labelledby="help-heading" class="dialog-card" id="help-dialog"><div class="dialog-head"><div><h2 id="help-heading">Ваш планер месяца</h2><p>Контент, даты и идеи — без производственных статусов.</p></div><button aria-label="Закрыть" class="icon-btn" data-close="help-dialog"><svg><use href="#i-close"></use></svg></button></div><div class="dialog-body"><div class="help-grid"><div><h3>Скинуть идею в резерв</h3><p>Справа от календаря — общий резерв без привязки к месяцу. Впишите тему, выберите Reels, фото или сторис и нажмите «В резерв». Для большого ТЗ и моделей откройте «Подробнее».</p></div><div><h3>Календарь ↔ резерв</h3><p>Перетащите карточку между календарём и резервом. Или нажмите значок резерва на карточке дня, а затем «В календарь» на идее без даты. На телефоне доступны те же кнопки и выбор даты. Перенос не создаёт копию.</p></div><div><h3>Добавить</h3><p>Нажмите «＋» в нужной дате. Выберите Reels, фото или сторис, впишите тему и короткое ТЗ. В день можно добавить любое число публикаций.</p></div><div><h3>Изменить и перенести</h3><p>Откройте карточку. Здесь можно поменять тип, дату и время, сделать копию или удалить. На компьютере карточки также перетаскиваются между днями и внутри дня. Время — пометка для публикации; порядок карточек вы задаёте сами.</p></div><div><h3>Связать форматы</h3><p>В редакторе сохранённого рилса есть кнопки «Фотопост по ролику» и «Сторис по ролику». Они создают отдельный черновик с той же темой, датой и моделями.</p></div><div><h3>Видеть весь месяц</h3><p>Календарь и список показывают одни данные. Поиск и карточки-счётчики фильтруют контент. «Модели и баланс» учитывает все появления моделей по форматам.</p></div><div><h3>Планировать дальше</h3><p>Стрелки рядом с месяцем переключают календарь. Другие месяцы пустые: добавляйте туда публикации, не теряя октябрь. Дата в редакторе также позволяет переносить контент между месяцами.</p></div><div><h3>Отменить действие</h3><p>Стрелки отмены и повтора работают для добавлений, правок, переносов и удаления. История доступна в текущей вкладке. Ctrl / Cmd + Z — отменить действие вне текстового поля.</p></div></div><div class="help-callout"><strong>Сохранение и переход с v3.</strong> Календарь и резерв сохраняются вместе в этом браузере. Для передачи и резервирования нажмите «Скачать HTML» или скачайте JSON в меню «…». Правки старой версии, оставшиеся только в другом файле/браузере, автоматически недоступны: откройте старый планер, скачайте актуальный HTML или JSON и загрузите его через «Загрузить план из файла». Импорт заменяет весь план, включая резерв; сначала сохраните копию. Совместной синхронизации между устройствами нет.</div></div><div class="dialog-foot"><button class="btn btn-solid" data-close="help-dialog">Понятно</button></div></dialog>
+<dialog aria-labelledby="import-heading" class="dialog-card" id="import-dialog"><div class="dialog-head"><div><h2 id="import-heading">Загрузить план</h2><p>Сохранённый HTML этого планера или резервная копия JSON.</p></div><button aria-label="Закрыть" class="icon-btn" data-close="import-dialog"><svg><use href="#i-close"></use></svg></button></div><div class="dialog-body"><div class="import-box"><button class="btn" id="choose-import-file"><svg><use href="#i-upload"></use></svg>Выбрать файл</button><p>Поддерживаются планеры KRAI v2, v3 и v4.<br/>Календарь и резерв загружаются вместе. До подтверждения ничего не меняется.</p><input accept=".json,.html,.htm" hidden="" id="import-file" type="file"/></div><div class="import-preview" hidden="" id="import-preview"></div><p class="error-text" hidden="" id="import-error"></p></div><div class="dialog-foot"><button class="btn" data-close="import-dialog">Отмена</button><button class="btn btn-solid" disabled="" id="confirm-import">Заменить план</button></div></dialog>
+<div class="toast" hidden="" id="toast" role="status"><span id="toast-text"></span><button hidden="" id="toast-undo">Отменить</button></div>
+<noscript><div style="padding:30px">Для работы календаря включите JavaScript и откройте HTML в обычном браузере.</div></noscript>
+<script id="seed-data" type="application/json">{"app":"krai-content-planner","schemaVersion":4,"documentId":"krai-month-planner-v3-oct2026","updatedAt":"2026-09-23T12:00:00.000Z","viewMonth":"2026-10","items":[{"id":"oct2026-d01-r1","date":"2026-10-01","type":"reel","title":"M58 — новый обзор #1","description":"Большой свежий обзор: форма, посадка, подошва, внешний вид на ноге. Один из главных продуктов октября.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d01-r2","date":"2026-10-01","type":"reel","title":"Плетёный портфель — запуск","description":"Показываем в самом начале месяца: общий вид, кожа, плетение, фурнитура, в руке и в образе. Если отклик сильный — ситуативно доснимаем ещё.","models":["Кожгалантерея","Плетёный портфель"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d02-r1","date":"2026-10-02","type":"reel","title":"Хлынов — новый обзор #1","description":"Полностью новый ролик: в руках, на ноге, крупные планы. Городская модель на осень.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d02-r2","date":"2026-10-02","type":"reel","title":"Егор: вся линейка хайкеров KRAI","description":"M58, XS4, S20, M111 и X рядом. Зачем существует каждая модель, какая идея в неё заложена и кому что подходит.","models":["M58","XS4","S20","M111","Хайкеры X"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d03-r1","date":"2026-10-03","type":"reel","title":"M58 + Миша #1","description":"Городская эксплуатация: асфальт, лестницы, бордюры, много движения. Не обзор, а реальная жизнь модели.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d03-r2","date":"2026-10-03","type":"reel","title":"XS4 — новый обзор #1","description":"Посадка, форма, компактность, подошва, вид на ноге. Отдельно показать, чем XS4 отличается от больших хайкеров.","models":["XS4"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d03-r3","date":"2026-10-03","type":"reel","title":"Новый рюкзак KRAI — первое представление","description":"Отдельный продуктовый ролик: материалы, фурнитура, функциональность, как выглядит на человеке.","models":["Кожгалантерея","Новый рюкзак"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d04-r1","date":"2026-10-04","type":"reel","title":"Хайкеры X — новый обзор #1","description":"Первое полноценное представление новой модели: в руках, на ноге, высота, характер и позиционирование.","models":["Хайкеры X"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d04-r2","date":"2026-10-04","type":"reel","title":"S20 с бронёй","description":"Обязательно показать броню крупно: носочная часть, защита, подошва, общий силуэт и на ноге.","models":["S20"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d05-r1","date":"2026-10-05","type":"reel","title":"M58 — новый обзор #2","description":"Другой материал / цвет. Фокус на массивности при небольшом весе и на том, как модель выглядит в осеннем образе.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d05-r2","date":"2026-10-05","type":"reel","title":"Егор: M11 → M111 — 10 лет одной модели","description":"Показать старые M11, что менялось за годы и почему теперь появляется M111. Подвести к новому позиционированию.","models":["M11","M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d05-r3","date":"2026-10-05","type":"reel","title":"Рюкзак Практик — 10 лет спустя","description":"Старый Практик рядом с новым: что сохранили, что изменили, как повели себя материалы и конструкция.","models":["Кожгалантерея","Рюкзак Практик"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d06-r1","date":"2026-10-06","type":"reel","title":"Хлынов — новый обзор #2","description":"Другой цвет / кожа / образ. Показываем Хлынов как универсальную городскую пару.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d06-r2","date":"2026-10-06","type":"reel","title":"M111 — Mont Blanc","description":"Полноценный ролик про конфигурацию для широкой ноги: колодка + лёгкая массивная подошва. Не просто техническое сравнение, а продукт.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d07-r1","date":"2026-10-07","type":"reel","title":"M58 + Миша #2","description":"Дождь, мокрый асфальт, лужи, грязь. Как M58 ведут себя в обычной осенней погоде.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d07-r2","date":"2026-10-07","type":"reel","title":"Сумки для ноутбуков","description":"Показать размеры, что помещается, как выглядит с ноутбуком, документы, зарядки, повседневное использование.","models":["Кожгалантерея","Сумки для ноутбуков"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d08-r1","date":"2026-10-08","type":"reel","title":"XS4 — новый обзор #2","description":"Материалы, конструкция, подошва, крупные детали. Визуально не повторять первый ролик.","models":["XS4"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d08-r2","date":"2026-10-08","type":"reel","title":"Егор: классика KRAI","description":"Модели, которые пережили годы и остаются актуальными: M58, Хлынов, M11/M111 и другие проверенные решения.","models":["M58","Хлынов","M11","M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d09-r1","date":"2026-10-09","type":"reel","title":"M58 — новый обзор #3","description":"Посадка и комфорт: для какой стопы, как ощущается массивная обувь, что даёт колодка.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d09-r2","date":"2026-10-09","type":"reel","title":"M111 — Campbell M4","description":"Вторая конфигурация M111. Наш «суперстандарт»: кому подходит M4 и почему эта колодка универсальна.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d09-r3","date":"2026-10-09","type":"reel","title":"Сумки-малышки","description":"Отдельно показать маленькие сумки: что помещается, как носить, на человеке, разные варианты кожи.","models":["Кожгалантерея","Сумки-малышки"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d10-r1","date":"2026-10-10","type":"reel","title":"Хлынов — новый обзор #3","description":"Комфорт, колодка, подошва, мягкость. Чистый новый продуктовый ролик.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d10-r2","date":"2026-10-10","type":"reel","title":"Как мы разрабатывали Хайкеры X","description":"Клапан, высота, допслои, материалы, варианты, от которых отказались. История разработки, а не обычный обзор.","models":["Хайкеры X"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d11-r1","date":"2026-10-11","type":"reel","title":"M58 + Миша #3","description":"Более жёсткая эксплуатация: парк, грунт, лес, камни, дальняя прогулка.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d11-r2","date":"2026-10-11","type":"reel","title":"Егор: наборная подошва из EVA","description":"Несколько слоёв EVA: зачем они нужны, как собираются и что дают по весу, амортизации и конструкции.","models":["M58","M111","S20"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d12-r1","date":"2026-10-12","type":"reel","title":"S20 vs Хайкеры X","description":"Сравнить высоту, форму, клапан, объём, подошву и сценарии. Чётко ответить, кому какая модель.","models":["S20","Хайкеры X"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d12-r2","date":"2026-10-12","type":"reel","title":"Обувь в офис #1 — современная классика","description":"Рубель + Дерби 72 + Пенни 4. Что выбрать мужчине, который ходит в офис и не хочет выглядеть слишком формально.","models":["Рубель","Дерби 72","Пенни 4"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d13-r1","date":"2026-10-13","type":"reel","title":"M58 — новый обзор #4","description":"Материалы и детали: кожа, швы, подошва, крупные планы. Спокойный предметный ролик.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d13-r2","date":"2026-10-13","type":"reel","title":"M111 — Hayes + Arms","description":"Третья конфигурация M111: проверенная классика, знакомая форма и подошва Arms. Полноценный продуктовый ролик.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d13-r3","date":"2026-10-13","type":"reel","title":"Рюкзак-антивор","description":"Как устроен, где молнии и карманы, что делает его удобным в городе и дороге. Показать на человеке.","models":["Кожгалантерея","Рюкзак-антивор"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d14-r1","date":"2026-10-14","type":"reel","title":"XS4 — новый обзор #3","description":"Другой цвет / кожа, больше лайфстайла и вида на ноге. Свежий ролик без повторения первых двух.","models":["XS4"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d14-r2","date":"2026-10-14","type":"reel","title":"Егор: почему EVA не промерзает","description":"Просто и предметно объяснить, зачем EVA нужна в осенне-зимней обуви и как ведёт себя на морозе.","models":["M58","M111","S20","XS4"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d15-r1","date":"2026-10-15","type":"reel","title":"M58 + Миша #4","description":"Четвёртый эксплуатационный ролик: длинная прогулка / необычная локация / реальный тест на весь день.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d15-r2","date":"2026-10-15","type":"reel","title":"Челси — новый обзор #1","description":"Большой сезонный обзор: на ноге, с брюками и джинсами, форма носа, посадка, осенний образ.","models":["Челси"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d16-r1","date":"2026-10-16","type":"reel","title":"Хлынов — новый обзор #4","description":"Более fashion-подача: новая кожа / цвет и модель как часть осеннего образа.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d16-r2","date":"2026-10-16","type":"reel","title":"M111 — полноценный обзор #1","description":"Не колодка отдельно, а готовая модель в конкретной расцветке: в руках, на ноге, общий характер.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d17-r1","date":"2026-10-17","type":"reel","title":"Хайкеры X vs Hikes с Lamoda","description":"Физически поставить рядом. Сравнить форму, кожу, конструкцию, подошву, детали и посадку.","models":["Хайкеры X"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d17-r2","date":"2026-10-17","type":"reel","title":"Егор: самые лёгкие модели KRAI","description":"Вернуть низкую коллекцию: сравнить несколько лёгких моделей по весу, ощущениям и сценарию использования.","models":["Хлынов","Кеды 51","Кеды 108","Дымка","Восход"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d17-r3","date":"2026-10-17","type":"reel","title":"Практик Crazy Horse — осенний вайб","description":"Чистый красивый lifestyle: улица, куртка, листья, фактура Crazy Horse крупно.","models":["Кожгалантерея","Рюкзак Практик"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d18-r1","date":"2026-10-18","type":"reel","title":"M58 — новый обзор #5","description":"Ещё одна расцветка / кожа. Коммерческий ролик: показать M58 максимально понятно и привлекательно.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d18-r2","date":"2026-10-18","type":"reel","title":"M150 в нубуке #1","description":"Высокие кеды: показать, что легко надеваются, несмотря на высоту. Плотный нубук, осенний характер.","models":["M150"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d18-r3","date":"2026-10-18","type":"reel","title":"Распаковка рюкзака","description":"Как приходит клиенту: упаковка, наполнение, карманы, что куда кладётся и что помещается внутрь.","models":["Кожгалантерея","Новый рюкзак"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d19-r1","date":"2026-10-19","type":"reel","title":"XS4 + Миша — краш-тест","description":"Реальная активная эксплуатация XS4: нагрузка, плохое покрытие, движение, грязь.","models":["XS4"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d19-r2","date":"2026-10-19","type":"reel","title":"Рабочие ботинки #1 — M4 + другая подошва","description":"Показать рабочие ботинки как отдельный продукт: форма, кожа, подошва, на ноге.","models":["Рабочие ботинки"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d20-r1","date":"2026-10-20","type":"reel","title":"Хлынов — новый обзор #5","description":"Индивидуальный заказ: цвета, кожа, детали. Показать, насколько по-разному может выглядеть одна модель.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d20-r2","date":"2026-10-20","type":"reel","title":"Егор: Crazy Horse vs Buffalo","description":"Уличный осенний обзор двух видов кожи на рюкзаках: фактура, старение, ощущения, визуальная разница.","models":["Кожгалантерея","Рюкзак Практик"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d21-r1","date":"2026-10-21","type":"reel","title":"M58 — новый обзор #6","description":"Сильный продуктовый ролик в новом исполнении: красивый коммерческий обзор без повторения предыдущих.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d21-r2","date":"2026-10-21","type":"reel","title":"M111 — полноценный обзор #2","description":"Ещё одна готовая расцветка M111. Фокус на внешнем виде и посадке, а не на технической колодке.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d21-r3","date":"2026-10-21","type":"reel","title":"Все мелкие аксессуары KRAI","description":"Картхолдеры, клатч, паспортницы и другие небольшие кожаные вещи одним динамичным роликом.","models":["Кожгалантерея","Аксессуары"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d22-r1","date":"2026-10-22","type":"reel","title":"S20 — новый обзор #2","description":"Другое исполнение. Построить ролик вокруг вопроса: кому вообще нужны S20 и чем они интересны.","models":["S20"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d22-r2","date":"2026-10-22","type":"reel","title":"Обувь в офис #2 — что носить с классикой","description":"Рубель + Пенни 4 + Челси. Три разных уровня формальности: офис, встречи, повседневная классика.","models":["Рубель","Пенни 4","Челси"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d23-r1","date":"2026-10-23","type":"reel","title":"Desert #1","description":"Полноценный осенний обзор: форма, замша/кожа, подошва, посадка, на ноге и в образе.","models":["Desert"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d23-r2","date":"2026-10-23","type":"reel","title":"Егор: низкая коллекция осенью","description":"Что носить, если человек не любит высокие ботинки: Хлынов, кеды, Дымка, Восход и другие низкие варианты.","models":["Хлынов","Кеды 51","Кеды 108","Дымка","Восход"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d24-r1","date":"2026-10-24","type":"reel","title":"Наши хайкеры vs масс-маркет","description":"На примере M58 и типичных магазинных хайкеров: кожа, конструкция, подошва, колодка, выбор деталей.","models":["M58"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d24-r2","date":"2026-10-24","type":"reel","title":"M150 #2","description":"Второй ролик M150: другой материал / цвет, больше вида на ноге и сочетаний с одеждой.","models":["M150"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d25-r1","date":"2026-10-25","type":"reel","title":"Хлынов — новый обзор #6","description":"Финальный новый Хлынов месяца: другая подача и исполнение, без повторения предыдущих пяти.","models":["Хлынов"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d25-r2","date":"2026-10-25","type":"reel","title":"Челси #2 — новая колодка 33","description":"Показать новую форму носа, силуэт и посадку. Сделать понятным, что именно поменяла новая колодка.","models":["Челси","Колодка 33"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d25-r3","date":"2026-10-25","type":"reel","title":"M111 — полноценный обзор #3","description":"Третья готовая расцветка M111. Чистая коммерческая презентация модели.","models":["M111"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d26-r1","date":"2026-10-26","type":"reel","title":"S20 — новый обзор #3","description":"Третий самостоятельный продуктовый ролик: ещё одна кожа / цвет / образ.","models":["S20"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d26-r2","date":"2026-10-26","type":"reel","title":"Новые тенниски #1","description":"Первое отдельное представление: в руках, на ноге, посадка, материалы, чем отличаются от обычных кед.","models":["Тенниски"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d27-r1","date":"2026-10-27","type":"reel","title":"Рабочие ботинки #2","description":"Второй полноценный обзор: больше вида на ноге, кожи, конструкции и характера модели.","models":["Рабочие ботинки"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d27-r2","date":"2026-10-27","type":"reel","title":"Егор: насколько можно менять нашу обувь","description":"На рабочих ботинках показать: петли → люверсы, другая подошва, мелкие детали. Гибкость индивидуального пошива.","models":["Рабочие ботинки"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d28-r1","date":"2026-10-28","type":"reel","title":"XS4 — новый обзор #4","description":"Четвёртый самостоятельный XS4: новое исполнение и сильная коммерческая подача.","models":["XS4"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d28-r2","date":"2026-10-28","type":"reel","title":"Химчистка и уход KRAI","description":"Сервис в ЦУМе: средства для ухода, очистка кожи, чистка подошвы, до/после.","models":["Сервис"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d29-r1","date":"2026-10-29","type":"reel","title":"Desert #2","description":"Второй самостоятельный ролик Desert: другой образ / кожа / цвет. Сделать более городским и коммерческим.","models":["Desert"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d29-r2","date":"2026-10-29","type":"reel","title":"M111 — полноценный обзор #4","description":"Четвёртая расцветка / исполнение. M111 должна выглядеть как полноценная новая линейка, а не только технический проект.","models":["M111"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d29-r3","date":"2026-10-29","type":"reel","title":"Краш-тест с папой Данила","description":"Живой ролик на реальной эксплуатации. Можно дать рабочие ботинки и посмотреть, как они ведут себя в его сценариях.","models":["Рабочие ботинки"],"time":"","link":"","order":2,"parentId":null},{"id":"oct2026-d30-r1","date":"2026-10-30","type":"reel","title":"Рубель — отдельный обзор","description":"Не только в подборках: полноценный ролик модели с посадкой, формой, материалом и образом.","models":["Рубель"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d30-r2","date":"2026-10-30","type":"reel","title":"Егор: зачем нам столько колодок","description":"Через M111, новую колодку 33 и другие примеры объяснить, почему одна форма не может одинаково хорошо работать для всех.","models":["M111","Челси","Колодка 33"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d31-r1","date":"2026-10-31","type":"reel","title":"Какие хайкеры выбрать: 5 моделей — 5 задач","description":"M58, XS4, S20, M111, X. Быстрый понятный выбор по стопе, внешнему виду и сценарию использования.","models":["M58","XS4","S20","M111","Хайкеры X"],"time":"","link":"","order":0,"parentId":null},{"id":"oct2026-d31-r2","date":"2026-10-31","type":"reel","title":"Новые тенниски #2","description":"Второй ролик: другой образ / цвет / вариант исполнения. Больше лайфстайла и вида на ноге.","models":["Тенниски"],"time":"","link":"","order":1,"parentId":null},{"id":"oct2026-d31-r3","date":"2026-10-31","type":"reel","title":"Новая кожгалантерея KRAI — вся линейка","description":"Плетёный портфель, антивор, малышки, сумки для ноутбуков, новый рюкзак. Короткий финальный каталог новинок.","models":["Кожгалантерея","Плетёный портфель","Рюкзак-антивор","Сумки-малышки","Сумки для ноутбуков","Новый рюкзак"],"time":"","link":"","order":2,"parentId":null}]}</script>
+<script>
+'use strict';
+// Single-file, offline planner. No data is sent to a server.
+const TEMPLATE_HTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+const APP_ID = 'krai-content-planner';
+const SCHEMA = 4;
+const TYPES = {reel:{label:'Reels',icon:'reel'},photo:{label:'Фото',icon:'photo'},story:{label:'Сторис',icon:'story'}};
+const MONTHS = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+const WEEKDAYS = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+const WEEKSHORT = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+const BASE_MODELS = ['M58','Хлынов','M111','XS4','S20','Хайкеры X','Челси','Рабочие ботинки','M150','Desert','Рубель','Тенниски','Кожгалантерея','Плетёный портфель','Новый рюкзак','Рюкзак Практик','Рюкзак-антивор','Сумки-малышки','Сумки для ноутбуков','Аксессуары','Кеды 51','Кеды 108','Дымка','Восход','Дерби 72','Пенни 4','M11','Колодка 33','Сервис'];
+const CATEGORY_MODELS = new Set(['Кожгалантерея','Аксессуары','Сервис','Колодка 33']);
+const $ = id => document.getElementById(id);
+const clone = value => JSON.parse(JSON.stringify(value));
+const icon = (name) => '<svg aria-hidden="true"><use href="#i-'+name+'"/></svg>';
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const uid = () => 'krai-' + (globalThis.crypto?.randomUUID ? crypto.randomUUID() : Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12));
+const pad = value => String(value).padStart(2,'0');
+const isoDate = date => date.getFullYear()+'-'+pad(date.getMonth()+1)+'-'+pad(date.getDate());
+const monthOf = value => typeof value === 'string' ? value.slice(0,7) : '';
+const isReserve = item => item.date === null;
+const datedItems = items => items.filter(it=>!isReserve(it));
+const dateObject = value => {const [y,m,d] = value.split('-').map(Number);return new Date(y,m-1,d,12)};
+const validDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && value >= '2000-01-01' && value <= '2100-12-31' && isoDate(dateObject(value)) === value;
+const validMonth = value => typeof value === 'string' && /^\d{4}-(0[1-9]|1[0-2])$/.test(value) && value >= '2000-01' && value <= '2100-12';
+const longDate = value => new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long'}).format(dateObject(value));
+const fullDate = value => new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'}).format(dateObject(value));
+const plural = (n,forms) => {let k=Math.abs(n)%100;return forms[k>10&&k<20?2:(k%10===1?0:(k%10>=2&&k%10<=4?1:2))]};
+const unitsText = n => n+' '+plural(n,['публикация','публикации','публикаций']);
+const norm = value => String(value).toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/м/g,'m').replace(/х/g,'x').replace(/[^a-zа-я0-9]+/g,' ').trim();
+let state;
+function modelNames(){return [...new Set([...BASE_MODELS,...(state?.items||[]).flatMap(it=>it.models||[])])]}
+function canonicalModels(values){
+ const names=modelNames(), map=new Map(names.map(m=>[norm(m),m])), found=new Map();
+ for(const raw of values){const m=String(raw).trim().slice(0,100);if(m){const key=norm(m);found.set(key,map.get(key)||m)}}
+ return [...found.values()].slice(0,60);
+}
+function inferModels(title){
+ const text=' '+norm(title)+' ';
+ const aliases={'Хайкеры X':['хайкеры x','hiker x','hikers x'],'Челси':['челси','chelsea'],'Desert':['desert','deserts','дезерты','дезерт'],'M150':['m150','кеды 150'],'Тенниски':['тенниски','тенниска']};
+ return modelNames().filter(m=>(aliases[m]||[m]).some(alias=>text.includes(' '+norm(alias)+' ')));
+}
+function validateState(raw){
+ if(!raw || raw.app!==APP_ID || ![3,SCHEMA].includes(raw.schemaVersion) || !Array.isArray(raw.items)) throw new Error('Это не резервная копия контент-планера KRAI.');
+ if(raw.items.length>20000) throw new Error('В файле слишком много публикаций (максимум 20 000).');
+ const ids=new Set();
+ const items=raw.items.map((it,index)=>{
+  if(!it||!(validDate(it.date)||(raw.schemaVersion===4&&it.date===null))||!Object.hasOwn(TYPES,it.type)||typeof it.title!=='string'||!it.title.trim()) throw new Error('У публикации №'+(index+1)+' нет корректной даты, типа или заголовка.');
+  let id=typeof it.id==='string'&&/^[a-zA-Z0-9_-]{1,120}$/.test(it.id)&&!ids.has(it.id)?it.id:uid();ids.add(id);
+  const time=typeof it.time==='string'&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(it.time)?it.time:'';
+  const link=typeof it.link==='string'&&/^https?:\/\//i.test(it.link)?it.link.slice(0,2000):'';
+  return {id,date:it.date,type:it.type,title:it.title.trim().slice(0,240),description:String(it.description||'').slice(0,10000),models:canonicalModels(Array.isArray(it.models)?it.models:[]),time:it.date===null?'':time,link,lastDate:validDate(it.lastDate)?it.lastDate:null,lastTime:typeof it.lastTime==='string'&&/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(it.lastTime)?it.lastTime:'',order:Number.isFinite(it.order)?it.order:index,parentId:typeof it.parentId==='string'?it.parentId.slice(0,120):null};
+ });
+ return {app:APP_ID,schemaVersion:SCHEMA,documentId:typeof raw.documentId==='string'&&/^[a-zA-Z0-9_-]{1,120}$/.test(raw.documentId)?raw.documentId:uid(),updatedAt:typeof raw.updatedAt==='string'?raw.updatedAt:'',viewMonth:validMonth(raw.viewMonth)?raw.viewMonth:'2026-10',items};
+}
+const seed=validateState(JSON.parse($('seed-data').textContent));
+const STORAGE_KEY='krai-planner-v4:'+seed.documentId;
+const LEGACY_STORAGE_KEY='krai-planner-v3:'+seed.documentId;
+const PREFS_KEY=STORAGE_KEY+':view';
+let storageAvailable=true,saveError=false,loadWarning='';
+try{localStorage.setItem(STORAGE_KEY+':probe','1');localStorage.removeItem(STORAGE_KEY+':probe')}catch(e){storageAvailable=false}
+state=clone(seed);
+if(storageAvailable){
+ try{
+  const saved=localStorage.getItem(STORAGE_KEY),legacy=!saved?localStorage.getItem(LEGACY_STORAGE_KEY):null;
+  if(saved||legacy){const candidate=validateState(JSON.parse(saved||legacy));if(candidate.documentId===seed.documentId&&candidate.updatedAt>=seed.updatedAt){state=candidate;if(legacy)loadWarning='Ваши локальные правки v3 перенесены. Резерв готов к работе.'}}
+ }catch(e){loadWarning='Не удалось прочитать локальные правки. Открыта сохранённая версия файла.'}
+}
+let prefs={};
+try{prefs=JSON.parse(localStorage.getItem(PREFS_KEY)||'{}')}catch(e){}
+const backlogUI={type:'all',search:'',model:''};
+let reserveOpen=prefs.reserveOpen!==false,statsScope='calendar',scheduleId=null,editorPlacement='calendar',quickEditorSource=null;
+function quickDraftSnapshot(){return JSON.stringify({type:$('quick-type').value,title:$('quick-title').value,desc:$('quick-desc').value})}
+const ui={month:validMonth(prefs.month)?prefs.month:state.viewMonth,view:prefs.view==='list'?'list':prefs.view==='month'?'month':(matchMedia('(max-width:760px)').matches?'list':'month'),type:'all',search:'',model:'',fullText:!!prefs.fullText,selectedDate:state.viewMonth+'-01'};
+let undoStack=[],redoStack=[],toastTimer=null,draggedId=null,editingId=null,editorType='reel',editorParentId=null,editorDirty=false,editorInitial='',pendingImport=null,openedDay=null;
+function savePrefs(){try{localStorage.setItem(PREFS_KEY,JSON.stringify({month:ui.month,view:ui.view,fullText:ui.fullText,reserveOpen,hideMigration:!!prefs.hideMigration}))}catch(e){}}
+function updateSaveState(){
+ const ok=storageAvailable&&!saveError;
+ $('save-state').classList.toggle('bad',!ok);$('save-label').textContent=ok?'Сохранено в браузере':'Только в этой вкладке';
+ $('save-state').title=ok?'Правки доступны в этом браузере. Для переноса скачайте HTML.':'Локальное сохранение недоступно. Скачайте HTML перед закрытием.';
+ $('storage-warning').hidden=ok;
+}
+function persist(){
+ state.updatedAt=new Date().toISOString();state.viewMonth=ui.month;
+ if(storageAvailable){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));saveError=false}catch(e){saveError=true}}
+ updateSaveState();savePrefs();
+}
+function showToast(message,undo=false){
+ clearTimeout(toastTimer);$('toast-text').textContent=message;$('toast-undo').hidden=!undo;$('toast').hidden=false;
+ toastTimer=setTimeout(()=>{$('toast').hidden=true},5200);
+}
+function commit(message,mutate){
+ undoStack.push(clone(state));if(undoStack.length>40)undoStack.shift();redoStack=[];
+ mutate();persist();render();showToast(message,true);
+}
+function undo(){
+ if(!undoStack.length)return;redoStack.push(clone(state));state=undoStack.pop();ui.month=state.viewMonth;persist();render();showToast('Последнее действие отменено');
+}
+function redo(){
+ if(!redoStack.length)return;undoStack.push(clone(state));state=redoStack.pop();ui.month=state.viewMonth;persist();render();showToast('Действие повторено');
+}
+function byDay(date){return state.items.filter(it=>it.date===date).sort((a,b)=>a.order-b.order||a.id.localeCompare(b.id))}
+function monthItems(){return state.items.filter(it=>monthOf(it.date)===ui.month)}
+function matches(item){return (ui.type==='all'||item.type===ui.type)&&(!ui.model||item.models.includes(ui.model))&&(!ui.search||norm([item.title,item.description,...item.models].join(' ')).includes(norm(ui.search)))}
+function hasFilters(){return ui.type!=='all'||!!ui.model||!!ui.search}
+function clearFilters(){ui.type='all';ui.model='';ui.search='';$('search').value=''}
+function nextOrder(date){return Math.max(-1,...byDay(date).map(it=>it.order))+1}
+function numberInType(item){return byDay(item.date).filter(it=>it.type===item.type).findIndex(it=>it.id===item.id)+1}
+function cardHTML(item){
+ const label=TYPES[item.type].label,backlog=isReserve(item),num=backlog?'':numberInType(item);
+ const stash=backlog?'':'<button class="card-stash" data-to-reserve="'+esc(item.id)+'" title="Убрать в резерв" aria-label="Убрать в резерв: '+esc(item.title)+'">'+icon('reserve')+'</button>';
+ const last=backlog&&item.lastDate?'<span class="last-planned">Ранее: '+esc(fullDate(item.lastDate))+'</span>':'';
+ const tags=backlog&&item.models.length?'<div class="reserve-card-tags">'+item.models.slice(0,3).map(m=>'<span>'+esc(m)+'</span>').join('')+'</div>':'';
+ return '<article class="content-card '+item.type+(backlog?' reserve-card':'')+'" data-content-id="'+esc(item.id)+'" draggable="true" tabindex="0" role="button" aria-label="'+esc(label+': '+item.title+'. Изменить публикацию.')+'"><div class="card-meta"><span class="card-type">'+icon(TYPES[item.type].icon)+label+(num?' '+num:'')+'</span><span class="card-meta-right">'+(item.time?'<time class="card-time">'+esc(item.time)+'</time>':'')+stash+'</span></div><div class="card-title">'+esc(item.title)+'</div>'+(item.description?'<p class="card-desc">'+esc(item.description).replace(/\n/g,'<br>')+'</p>':'')+tags+(backlog?'<div class="reserve-card-bottom">'+last+'<button data-schedule="'+esc(item.id)+'" class="schedule-card-btn">'+icon('calendar')+'В календарь</button></div>':'')+'</article>';
+}
+function monthDates(){
+ const [y,m]=ui.month.split('-').map(Number),first=new Date(y,m-1,1,12),days=new Date(y,m,0,12).getDate();
+ return {y,m,first,days,offset:(first.getDay()+6)%7};
+}
+function renderHeader(){
+ const {y,m,days}=monthDates();$('month-title').innerHTML=MONTHS[m-1]+' <span>'+y+'</span>';$('month-picker').value=ui.month;
+ $('month-sub').textContent=days+' '+plural(days,['день','дня','дней'])+' для историй KRAI. Ролики, фото и сторис в одном календаре.';
+ $('prev-month').disabled=ui.month==='2000-01';$('next-month').disabled=ui.month==='2100-12';
+ const items=monthItems(),counts={all:items.length,reel:0,photo:0,story:0};items.forEach(it=>counts[it.type]++);
+ for(const key of Object.keys(counts))$('count-'+key).textContent=counts[key];
+ document.querySelectorAll('[data-filter]').forEach(btn=>{btn.classList.toggle('active',btn.dataset.filter===ui.type);btn.setAttribute('aria-pressed',String(btn.dataset.filter===ui.type))});
+ const covered=new Set(items.map(it=>it.date)).size;
+ $('coverage-label').textContent=covered+' из '+days;$('coverage-fill').style.width=(100*covered/days)+'%';
+ $('coverage-note').textContent=covered===days?'Весь месяц в работе':(days-covered)+' '+plural(days-covered,['день','дня','дней'])+' пока без публикаций';
+ const matching=items.filter(matches).length;
+ $('results-note').textContent=hasFilters()?'Показано '+matching+' из '+items.length:'';
+ $('reset-filters').hidden=!hasFilters();$('clear-search').hidden=!ui.search;
+ $('model-filter').hidden=!ui.model;$('model-filter').querySelector('span').textContent=ui.model;
+ $('view-month').classList.toggle('active',ui.view==='month');$('view-list').classList.toggle('active',ui.view==='list');
+ $('view-month').setAttribute('aria-pressed',String(ui.view==='month'));$('view-list').setAttribute('aria-pressed',String(ui.view==='list'));
+ $('full-text').classList.toggle('active',ui.fullText);$('full-text').setAttribute('aria-pressed',String(ui.fullText));
+ document.body.classList.toggle('show-full',ui.fullText);
+ $('undo').disabled=!undoStack.length;$('redo').disabled=!redoStack.length;
+}
+function renderCalendar(){
+ const {y,m,days,offset}=monthDates(),today=isoDate(new Date());
+ if(ui.view==='list'){
+  let html='<div class="agenda">';
+  for(let d=1;d<=days;d++){
+   const date=ui.month+'-'+pad(d),items=byDay(date),shown=items.filter(matches),dow=(dateObject(date).getDay()+6)%7;
+   if(hasFilters()&&!shown.length)continue;
+   html+='<section class="agenda-day" data-drop-date="'+date+'"><div class="agenda-date"><button class="day-date agenda-num" data-open-day="'+date+'">'+d+'</button><div class="agenda-weekday">'+WEEKSHORT[dow]+'</div><button class="btn" data-add-date="'+date+'" aria-label="Добавить контент на '+esc(longDate(date))+'">'+icon('plus')+'</button></div><div class="agenda-items">'+(shown.length?shown.map(cardHTML).join(''):'<div class="empty-day" style="padding:22px">День свободен. Добавьте первую публикацию.</div>')+'</div></section>';
+  }
+  if(hasFilters()&&!monthItems().some(matches))html+='<div class="calendar-empty">По этим условиям ничего не найдено. Сбросьте фильтры или добавьте новую публикацию.</div>';
+  $('calendar-root').innerHTML=html+'</div>';return;
+ }
+ const cells=Math.ceil((days+offset)/7)*7;
+ let html='<div class="calendar-scroll"><div class="weekdays">'+WEEKDAYS.map((w,i)=>'<div class="weekday '+(i>=5?'weekend':'')+'">'+w+'</div>').join('')+'</div><div class="calendar-grid">';
+ for(let i=0;i<cells;i++){
+  const day=i-offset+1,date=isoDate(new Date(y,m-1,day,12)),dow=i%7;
+  if(day<1||day>days){const other=dateObject(date);html+='<div class="day ghost" aria-hidden="true"><span class="ghost-date">'+other.getDate()+'</span><span class="ghost-month">'+new Intl.DateTimeFormat('ru-RU',{month:'short'}).format(other)+'</span></div>';continue}
+  const items=byDay(date),shown=items.filter(matches);
+  html+='<section class="day '+(dow>=5?'weekend ':'')+(date===today?'today':'')+'" data-drop-date="'+date+'" aria-label="'+esc(fullDate(date))+'"><div class="day-header"><button class="day-date '+(date===today?'today':'')+'" data-open-day="'+date+'" title="Открыть весь день">'+day+'</button><span class="day-unit-count" title="Публикаций за день">'+(items.length?items.length:'')+'</span><button class="day-add" data-add-date="'+date+'" aria-label="Добавить контент на '+esc(longDate(date))+'">'+icon('plus')+'</button></div><div class="day-items">'+(shown.length?shown.map(cardHTML).join(''):'<div class="empty-day">'+(hasFilters()?'Нет совпадений':'Пока свободно')+(!hasFilters()?'<br><button data-add-date="'+date+'">Добавить контент</button>':'')+'</div>')+'</div></section>';
+ }
+ $('calendar-root').innerHTML=html+'</div></div>';
+}
+function render(){renderHeader();renderCalendar();renderReserve();if($("day-dialog").open&&openedDay)renderDayDetail()}
+
+function reserveItems(){return byDay(null)}
+function reserveMatches(it){return (backlogUI.type==='all'||it.type===backlogUI.type)&&(!backlogUI.model||it.models.includes(backlogUI.model))&&(!backlogUI.search||norm([it.title,it.description,...it.models].join(' ')).includes(norm(backlogUI.search)))}
+function clearReserveFilters(){backlogUI.type='all';backlogUI.search='';backlogUI.model='';$('reserve-search').value=''}
+function setReserveOpen(open){
+ reserveOpen=open;$('planning-workspace').classList.toggle('reserve-hidden',!open);$('reserve-panel').hidden=!open;
+ $('toggle-reserve').classList.toggle('active',open);$('toggle-reserve').setAttribute('aria-expanded',String(open));savePrefs();
+}
+function renderReserve(){
+ const items=reserveItems(),shown=items.filter(reserveMatches),counts={all:items.length,reel:0,photo:0,story:0};items.forEach(it=>counts[it.type]++);
+ $('reserve-count').textContent=items.length;$('reserve-toggle-count').textContent=items.length;
+ $('reserve-type-filters').innerHTML=Object.keys(counts).map(k=>'<button data-reserve-type="'+k+'" class="'+(backlogUI.type===k?'active':'')+'" aria-pressed="'+(backlogUI.type===k)+'">'+(k==='all'?'Все':TYPES[k].label)+' <span>'+counts[k]+'</span></button>').join('');
+ $('reserve-model-filter').hidden=!backlogUI.model;$('reserve-model-filter').querySelector('span').textContent=backlogUI.model;
+ $('reserve-found').hidden=shown.length===items.length;$('reserve-found').textContent='Показано '+shown.length+' из '+items.length;
+ $('reserve-items').innerHTML=shown.length?shown.map(cardHTML).join(''):items.length?'<div class="reserve-empty compact">По фильтрам ничего нет.<button id="clear-reserve-filters">Сбросить фильтры</button></div>':'<div class="reserve-empty"><span class="reserve-empty-icon">'+icon('reserve')+'</span><strong>Хорошая идея может подождать</strong><p>Запишите её выше или перетащите сюда публикацию из календаря. Дата пока не нужна.</p></div>';
+ $('migration-hint').hidden=!!prefs.hideMigration;setReserveOpen(reserveOpen);
+}
+function quickReserve(event){
+ event.preventDefault();const title=$('quick-title').value.trim();if(!title){$('quick-title').setCustomValidity('Напишите хотя бы тему.');$('quick-title').reportValidity();return}
+ const type=$('quick-type').value,description=$('quick-desc').value.trim();
+ const item={id:uid(),date:null,type,title,description,models:inferModels(title),time:'',link:'',order:nextOrder(null),parentId:null,lastDate:null,lastTime:''};
+ commit('Идея сохранена в резерв',()=>{state.items.push(item);clearReserveFilters();reserveOpen=true});
+ $('quick-title').value='';$('quick-desc').value='';$('quick-details').open=false;$('quick-title').focus();
+}
+function moveToReserve(id){
+ const item=state.items.find(it=>it.id===id);if(!item||isReserve(item))return;
+ commit('Карточка убрана в резерв. Дата освобождена.',()=>{item.lastDate=item.date;item.lastTime=item.time;item.date=null;item.time='';item.order=nextOrder(null);clearReserveFilters();reserveOpen=true});
+}
+function openSchedule(id){
+ const item=state.items.find(it=>it.id===id);if(!item||!isReserve(item))return;
+ scheduleId=id;$('schedule-item-title').textContent=item.title;
+ $('schedule-date').value=validDate(ui.selectedDate)&&monthOf(ui.selectedDate)===ui.month?ui.selectedDate:ui.month+'-01';$('schedule-time').value='';
+ $('schedule-previous').hidden=!validDate(item.lastDate);
+ if(item.lastDate)$('schedule-previous').textContent='Вернуть на '+fullDate(item.lastDate)+(item.lastTime?' · '+item.lastTime:'');
+ $('schedule-dialog').showModal();setTimeout(()=>$('schedule-date').focus(),30);
+}
+function scheduleItem(event){
+ event.preventDefault();if(!$('schedule-form').reportValidity())return;
+ const date=$('schedule-date').value,time=$('schedule-time').value,item=state.items.find(it=>it.id===scheduleId);
+ if(!item||!isReserve(item)||!validDate(date))return;
+ $('schedule-dialog').close();
+ commit('Запланировано на '+fullDate(date),()=>{item.order=nextOrder(date);item.date=date;item.time=time;ui.month=monthOf(date);state.viewMonth=ui.month;ui.selectedDate=date;clearFilters()});scheduleId=null;
+}
+function setPlacement(placement,mark=true){
+ editorPlacement=placement==='reserve'?'reserve':'calendar';const reserve=editorPlacement==='reserve';
+ document.querySelectorAll('[data-placement]').forEach(btn=>{const active=btn.dataset.placement===editorPlacement;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
+ $('schedule-fields').hidden=reserve;$('field-date').disabled=reserve;$('field-date').required=!reserve;$('field-time').disabled=reserve;
+ if(!reserve&&!validDate($('field-date').value))$('field-date').value=ui.month+'-01';
+ $('placement-help').textContent=reserve?'Дата не нужна. Идея останется в общем резерве для любого месяца.':'Карточка появится в выбранном дне. Резерв можно запланировать и на другой месяц.';
+ $('editor-form').querySelector('.save-btn').textContent=reserve?'Сохранить в резерв':'Сохранить';if(mark)markDirty();
+}
+function renderDayDetail(){
+ $('day-heading').textContent=fullDate(openedDay);const dow=(dateObject(openedDay).getDay()+6)%7;
+ $('day-subtitle').textContent=WEEKDAYS[dow]+' · '+unitsText(byDay(openedDay).length);
+ $('day-detail-items').innerHTML=byDay(openedDay).map(cardHTML).join('')||'<p class="field-hint">Здесь ещё нет контента. Добавьте первую публикацию.</p>';
+}
+
+function setMonth(month){if(!validMonth(month))return;ui.month=month;ui.selectedDate=month+'-01';state.viewMonth=month;clearFilters();savePrefs();render()}
+function changeMonth(delta){const [y,m]=ui.month.split('-').map(Number),d=new Date(y,m-1+delta,1,12);setMonth(isoDate(d).slice(0,7))}
+function setView(view){ui.view=view;savePrefs();render()}
+function editorValues(){
+ return {date:editorPlacement==='reserve'?null:$('field-date').value,placement:editorPlacement,time:$('field-time').value,title:$('field-title').value,description:$('field-desc').value,models:$('field-models').value,link:$('field-link').value,type:editorType};
+}
+function markDirty(){
+ editorDirty=JSON.stringify(editorValues())!==editorInitial;
+ $('editor-eyebrow').textContent=editorDirty?'Есть несохранённые изменения':(editorPlacement==='reserve'?'Резерв · без даты':editingId?'Публикация в календаре':'Новая публикация');
+}
+function selectEditorType(type,mark=true){
+ if(!Object.hasOwn(TYPES,type))return;editorType=type;
+ document.querySelectorAll('[data-type]').forEach(btn=>{btn.classList.toggle('active',btn.dataset.type===type);btn.setAttribute('aria-pressed',String(btn.dataset.type===type))});
+ $('field-title').placeholder=type==='photo'?'Например: M58 — детали в фотокарусели':type==='story'?'Например: M58 — серия сторис о посадке':'Например: M58 — осенний обзор';
+ $('related').hidden=!(editingId&&type==='reel');
+ if(mark)markDirty();
+}
+function renderSuggestions(){
+ const selected=new Set($('field-models').value.split(',').map(norm));
+ $('model-suggestions').innerHTML=['M58','Хлынов','M111','XS4','S20','Кожгалантерея'].filter(m=>!selected.has(norm(m))).map(m=>'<button type="button" data-add-model="'+esc(m)+'">+ '+esc(m)+'</button>').join('');
+}
+function openEditor(date,type='reel',id=null,preset=null){
+ if($('editor').open&&!closeEditor())return;
+ ['day-dialog','stats-dialog','schedule-dialog'].forEach(key=>{if($(key).open)$(key).close()});
+ quickEditorSource=null;
+ const existing=id?state.items.find(it=>it.id===id):null;
+ if(id&&!existing)return;
+ const item=existing||preset||{date,type,title:'',description:'',time:'',models:[],link:''};
+ editingId=existing?existing.id:null;editorParentId=item.parentId||null;
+ $('editor-form').reset();$('field-title').setCustomValidity('');$('editor-error').hidden=true;$('additional-fields').open=false;
+ $('field-date').value=validDate(item.date)?item.date:validDate(item.lastDate)?item.lastDate:validDate(ui.selectedDate)&&monthOf(ui.selectedDate)===ui.month?ui.selectedDate:ui.month+'-01';
+ setPlacement(item.date===null?'reserve':'calendar',false);
+ $('field-time').value=item.time||'';$('field-title').value=item.title||'';$('field-desc').value=item.description||'';
+ $('field-models').value=(item.models||[]).join(', ');$('field-link').value=item.link||'';
+ selectEditorType(item.type||type,false);
+ $('editor-heading').textContent=editingId?'Изменить публикацию':'Добавить контент';
+ $('editor-eyebrow').textContent=editorPlacement==='reserve'?'Резерв · без даты':editingId?'Публикация в календаре':'Новая публикация';
+ $('delete-content').hidden=!editingId;$('duplicate-content').hidden=!editingId;
+ $('linked-note').hidden=!editorParentId;
+ if(editorParentId){const source=state.items.find(it=>it.id===editorParentId);$('linked-note').textContent=source?'По теме: '+source.title:'Связанная публикация';}
+ editorDirty=false;editorInitial=JSON.stringify(editorValues());if(editorPlacement==='calendar')ui.selectedDate=$('field-date').value;renderSuggestions();
+ $('editor').showModal();$('editor').scrollTop=0;
+ setTimeout(()=>$('field-title').focus(),40);
+}
+function closeEditor(force=false){
+ if(!force&&editorDirty&&!confirm('Закрыть без сохранения изменений этой карточки?'))return false;
+ $('editor').close();editingId=null;editorDirty=false;editorParentId=null;quickEditorSource=null;return true;
+}
+function saveEditor(event){
+ event?.preventDefault();
+ if(!$('editor-form').reportValidity())return;
+ const values=editorValues(),title=values.title.trim();
+ if(!title){$('field-title').setCustomValidity('Напишите тему публикации.');$('field-title').reportValidity();return}
+ if(editorPlacement!=='reserve'&&!validDate(values.date)){editorError('Выберите корректную дату от 2000 до 2100 года.');return}
+ if(values.link&&!/^https?:\/\//i.test(values.link.trim())){editorError('Ссылка должна начинаться с https:// или http://.');return}
+ const old=editingId?state.items.find(it=>it.id===editingId):null;
+ const models=values.models.trim()?canonicalModels(values.models.split(',')):inferModels(title);
+ const newItem={id:old?.id||uid(),date:values.date,time:values.date===null?'':values.time||'',type:editorType,title,description:values.description.trim(),models,link:values.link.trim(),order:old&&old.date===values.date?old.order:nextOrder(values.date),parentId:editorParentId,lastDate:values.date===null&&old?.date?old.date:old?.lastDate||null,lastTime:values.date===null&&old?.date?old.time:old?.lastTime||''};
+ const message=newItem.date===null?(old?'Карточка сохранена в резерв':'Идея добавлена в резерв'):old?'Публикация обновлена':TYPES[editorType].label+' добавлено: '+longDate(newItem.date);
+ const wasNew=!old;
+ if(quickEditorSource&&quickEditorSource===quickDraftSnapshot()){$('quick-title').value='';$('quick-desc').value='';$('quick-details').open=false}
+ closeEditor(true);
+ commit(message,()=>{if(old){state.items=state.items.map(it=>it.id===old.id?newItem:it)}else state.items.push(newItem);if(isReserve(newItem)){reserveOpen=true;clearReserveFilters()}else{ui.month=monthOf(newItem.date);state.viewMonth=ui.month;ui.selectedDate=newItem.date;if(wasNew||!matches(newItem))clearFilters()}});
+}
+function editorError(text){$('editor-error').textContent=text;$('editor-error').hidden=false}
+function deleteContent(){
+ const id=editingId,item=state.items.find(it=>it.id===id);if(!item)return;
+ if(!confirm('Удалить публикацию «'+item.title+'»? Действие можно отменить.'))return;
+ closeEditor(true);commit('Публикация удалена',()=>{state.items=state.items.filter(it=>it.id!==id)});
+}
+function duplicateContent(){
+ if(!editingId)return;
+ if(editorDirty&&!confirm('Создать копию текущего текста? Исходная карточка останется без несохранённых правок.'))return;
+ const v=editorValues(),preset={...v,models:v.models.trim()?canonicalModels(v.models.split(',')):inferModels(v.title),parentId:editorParentId};
+ closeEditor(true);openEditor(v.date,v.type,null,preset);$('editor-eyebrow').textContent='Копия — проверьте дату и содержание';
+}
+function createRelated(type){
+ const source=state.items.find(it=>it.id===editingId);if(!source)return;
+ if(editorDirty&&!confirm('Создать связанную публикацию? Несохранённые правки исходной карточки будут отброшены.'))return;
+ const title=(type==='photo'?'Фото · ':'Сторис · ')+source.title;
+ const description=type==='photo'?'Фотопост по теме «'+source.title+'». Показать общий вид, детали и использование. Дополнить список кадров и подпись.':'Серия сторис по теме «'+source.title+'». Продумать кадры и короткий текст для каждого экрана.';
+ const preset={date:source.date,type,title:title.slice(0,240),description,models:[...source.models],time:'',link:source.link,parentId:source.id};
+ closeEditor(true);openEditor(preset.date,type,null,preset);
+}
+function openDay(date){
+ openedDay=date;ui.selectedDate=date;
+ $('day-heading').textContent=fullDate(date);const dow=(dateObject(date).getDay()+6)%7;$('day-subtitle').textContent=WEEKDAYS[dow]+' · '+unitsText(byDay(date).length);
+ $('day-detail-items').innerHTML=byDay(date).map(cardHTML).join('')||'<p class="field-hint">Здесь ещё нет контента. Добавьте первую публикацию.</p>';
+ $('day-dialog').showModal();
+}
+async function copyText(text){
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);return true}}catch(e){}
+ const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
+ (document.querySelector('dialog[open]')||document.body).appendChild(ta);ta.focus();ta.select();
+ let ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();return ok;
+}
+async function copyDay(){
+ if(!openedDay)return;
+ const rows=[fullDate(openedDay),''];
+ for(const [i,it]of byDay(openedDay).entries())rows.push((i+1)+'. '+TYPES[it.type].label+(it.time?' · '+it.time:'')+' — '+it.title,it.description,it.models.length?'Модели: '+it.models.join(', '):'',it.link||'','');
+ const ok=await copyText(rows.filter((row,i,arr)=>row||arr[i-1]).join('\n'));
+ $('copy-day').innerHTML=ok?'Скопировано':icon('copy')+'Не удалось скопировать';
+ setTimeout(()=>$('copy-day').innerHTML=icon('copy')+'Скопировать день',2200);
+}
+function openStats(){
+ const items=statsScope==='reserve'?reserveItems():monthItems(),counts=new Map();
+ items.forEach(it=>{new Set(it.models).forEach(m=>{if(!counts.has(m))counts.set(m,{all:0,reel:0,photo:0,story:0});const c=counts.get(m);c.all++;c[it.type]++})});
+ const sorted=[...counts.entries()].sort((a,b)=>b[1].all-a[1].all||a[0].localeCompare(b[0],'ru'));
+ const [y,m]=ui.month.split('-').map(Number),untagged=items.filter(it=>!it.models.length).length;
+ $('stats-subtitle').textContent=(statsScope==='reserve'?'Резерв без даты':MONTHS[m-1]+' '+y)+' · '+unitsText(items.length)+(untagged?' · Без моделей: '+untagged:'');
+ $('stats-table-wrap').innerHTML=sorted.length?'<table class="stats-table"><thead><tr><th>Модель / категория</th><th class="mini-type reel">Reels</th><th class="mini-type photo">Фото</th><th class="mini-type story">Сторис</th><th class="col-total">Всего</th></tr></thead><tbody>'+sorted.map(([name,c])=>'<tr><td><button data-model-filter="'+esc(name)+'">'+esc(name)+'</button>'+(CATEGORY_MODELS.has(name)?'<span class="cat">Категория / характеристика</span>':'')+'</td><td>'+c.reel+'</td><td>'+c.photo+'</td><td>'+c.story+'</td><td class="col-total">'+c.all+'</td></tr>').join('')+'</tbody></table>':'<div class="calendar-empty">В выбранном разделе пока нет публикаций с указанными моделями.</div>';
+ document.querySelectorAll('[data-stats-scope]').forEach(btn=>{btn.classList.toggle('active',btn.dataset.statsScope===statsScope);btn.setAttribute('aria-pressed',String(btn.dataset.statsScope===statsScope))});
+ $('stats-filter-hint').textContent='Нажмите на модель, чтобы увидеть её '+(statsScope==='reserve'?'в резерве.':'в календаре.');
+ if(!$('stats-dialog').open)$('stats-dialog').showModal();
+}
+function clearDrag(){document.querySelectorAll('.drag-over,.drop-before,.dragging').forEach(el=>el.classList.remove('drag-over','drop-before','dragging'));document.body.classList.remove('drag-active');draggedId=null}
+// Internal drag-and-drop only: arbitrary text/files are not interpreted as commands.
+$('planning-workspace').addEventListener('dragstart',event=>{
+ const card=event.target.closest('[data-content-id]');if(!card)return;draggedId=card.dataset.contentId;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain',draggedId);card.classList.add('dragging');document.body.classList.add('drag-active');setReserveOpen(true);
+});
+$('planning-workspace').addEventListener('dragover',event=>{
+ if(!draggedId)return;const target=event.target.closest('[data-drop-date],[data-drop-reserve]');if(!target)return;
+ event.preventDefault();event.dataTransfer.dropEffect='move';document.querySelectorAll('.drag-over,.drop-before').forEach(el=>el.classList.remove('drag-over','drop-before'));
+ target.classList.add('drag-over');const before=event.target.closest('[data-content-id]');if(before&&before.dataset.contentId!==draggedId)before.classList.add('drop-before');
+});
+$('planning-workspace').addEventListener('drop',event=>{
+ const target=event.target.closest('[data-drop-date],[data-drop-reserve]');if(!draggedId||!target)return;event.preventDefault();
+ const id=draggedId,source=state.items.find(it=>it.id===id),date=target.hasAttribute('data-drop-reserve')?null:target.dataset.dropDate,beforeId=event.target.closest('[data-content-id]')?.dataset.contentId||null;
+ clearDrag();if(!source||(date!==null&&!validDate(date))||beforeId===id)return;
+ const oldDate=source.date,movedDate=oldDate!==date;
+ commit(movedDate?(date===null?'Карточка перенесена в резерв':'Запланировано на '+longDate(date)):'Порядок карточек изменён',()=>{
+  const targetItems=byDay(date).filter(it=>it.id!==id),index=beforeId?targetItems.findIndex(it=>it.id===beforeId):-1;
+  if(date===null&&oldDate){source.lastDate=oldDate;source.lastTime=source.time;source.time=''}
+  source.date=date;targetItems.splice(index<0?targetItems.length:index,0,source);targetItems.forEach((it,i)=>{it.order=i});
+  if(date===null){reserveOpen=true;clearReserveFilters()}else{ui.selectedDate=date;if(!matches(source))clearFilters()}
+ });
+});
+$('planning-workspace').addEventListener('dragend',clearDrag);
+
+function downloadBlob(content,type,filename){
+ const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);
+}
+function safeJSON(value){return JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')}
+function exportHTML(){
+ if(editorDirty||$('quick-title').value.trim()||$('quick-desc').value.trim()){showToast('Сначала сохраните открытую карточку или быструю идею.');return}
+ const snapshot=clone(state);snapshot.documentId=uid();snapshot.updatedAt=new Date().toISOString();snapshot.viewMonth=ui.month;
+ const doc=new DOMParser().parseFromString(TEMPLATE_HTML,'text/html');doc.getElementById('seed-data').textContent=safeJSON(snapshot);
+ doc.title='KRAI — контент-планер · '+ui.month;
+ downloadBlob('<!doctype html>\n'+doc.documentElement.outerHTML,'text/html;charset=utf-8','KRAI_Контент-планер_v4_'+ui.month+'_'+new Date().toISOString().slice(0,10)+'.html');
+ showToast('Скачан HTML: календарь и резерв вместе');
+}
+function exportJSON(){
+ if(editorDirty||$('quick-title').value.trim()||$('quick-desc').value.trim()){showToast('Сначала сохраните открытую карточку или быструю идею.');return}
+ const snapshot=clone(state);snapshot.viewMonth=ui.month;
+ downloadBlob(JSON.stringify(snapshot,null,2),'application/json;charset=utf-8','KRAI_Резервная-копия_'+new Date().toISOString().slice(0,10)+'.json');showToast('Резервная копия скачана');
+}
+function legacyPlan(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new Error('Не найден план в формате предыдущей версии.');
+ const keys=Object.keys(raw);if(!keys.length||!keys.every(k=>/^\d{1,2}$/.test(k)&&Number(k)>=1&&Number(k)<=31&&Array.isArray(raw[k])))throw new Error('Не найден календарь KRAI v2.');
+ const items=[];
+ keys.forEach(day=>raw[day].forEach((it,i)=>{if(!it||typeof it.title!=='string')throw new Error('Повреждена публикация в старом календаре.');items.push({id:uid(),date:'2026-10-'+pad(day),type:'reel',title:it.title,description:it.desc||'',models:it.models||[],order:i,time:'',link:''})}));
+ return validateState({app:APP_ID,schemaVersion:SCHEMA,documentId:uid(),updatedAt:new Date().toISOString(),viewMonth:'2026-10',items});
+}
+function extractLegacy(text){
+ const match=/\bconst\s+BASE_PLAN\s*=\s*/.exec(text);if(!match)throw new Error('В HTML нет встроенных данных планера KRAI.');
+ const start=match.index+match[0].length;let inString=false,escape=false,depth=0,end=-1;
+ for(let i=start;i<text.length;i++){
+  const ch=text[i];if(inString){if(escape)escape=false;else if(ch==='\\')escape=true;else if(ch==='"')inString=false;continue}
+  if(ch==='"')inString=true;else if(ch==='{'||ch==='[')depth++;else if(ch==='}'||ch===']'){depth--;if(depth===0){end=i+1;break}}
+ }
+ if(end<0)throw new Error('Не удалось прочитать данные старого HTML.');return legacyPlan(JSON.parse(text.slice(start,end)));
+}
+function parseImport(text){
+ const trimmed=text.trim();
+ if(trimmed.startsWith('<')){
+  const doc=new DOMParser().parseFromString(text,'text/html'),embedded=doc.getElementById('seed-data');
+  return embedded?validateState(JSON.parse(embedded.textContent)):extractLegacy(text);
+ }
+ const raw=JSON.parse(text);return raw.app===APP_ID?validateState(raw):legacyPlan(raw);
+}
+function openImport(){
+ pendingImport=null;$('import-file').value='';$('import-preview').hidden=true;$('import-error').hidden=true;$('confirm-import').disabled=true;$('import-dialog').showModal();
+}
+async function readImport(file){
+ if(!file)return;
+ pendingImport=null;$('confirm-import').disabled=true;$('import-preview').hidden=true;$('import-error').hidden=true;
+ try{
+  if(file.size>12*1024*1024)throw new Error('Файл слишком большой. Максимум — 12 МБ.');
+  pendingImport=parseImport(await file.text());
+  const n=pendingImport.items.length,months=new Set(datedItems(pendingImport.items).map(it=>monthOf(it.date))).size,reserveN=pendingImport.items.filter(isReserve).length;
+  $('import-preview').textContent=file.name+' — '+unitsText(n)+' всего: '+(n-reserveN)+' в календаре, '+reserveN+' в резерве. Запланировано месяцев: '+months+'. Текущий календарь и резерв будут заменены. Сначала сохраните его копию через меню «…». После импорта замену можно отменить стрелкой.';
+  $('import-preview').hidden=false;$('confirm-import').disabled=false;
+ }catch(e){$('import-error').textContent=e instanceof SyntaxError?'Не удалось прочитать файл: некорректные данные JSON.':e.message;$('import-error').hidden=false}
+}
+function confirmImport(){
+ if(!pendingImport)return;const imported=clone(pendingImport);$('import-dialog').close();
+ commit('План загружен из файла',()=>{state.items=imported.items;ui.month=imported.viewMonth;state.viewMonth=ui.month;clearFilters();clearReserveFilters();prefs.hideMigration=true});pendingImport=null;
+}
+function closeMenus(){
+ $('file-menu').hidden=true;$('file-menu-toggle').setAttribute('aria-expanded','false');$('month-picker-pop').hidden=true;
+}
+// UI events: attributes carry data only. User-supplied strings are never evaluated.
+$('calendar-root').addEventListener('click',event=>{
+ const stash=event.target.closest('[data-to-reserve]');if(stash){moveToReserve(stash.dataset.toReserve);return}
+ const add=event.target.closest('[data-add-date]');if(add){openEditor(add.dataset.addDate,ui.type==='all'?'reel':ui.type);return}
+ const day=event.target.closest('[data-open-day]');if(day){openDay(day.dataset.openDay);return}
+ const card=event.target.closest('[data-content-id]');if(card){openEditor(null,'reel',card.dataset.contentId)}
+});
+function activateCardByKey(event){
+ if((event.key==='Enter'||event.key===' ')&&event.target.matches('[data-content-id]')){event.preventDefault();openEditor(null,'reel',event.target.dataset.contentId)}
+}
+$('calendar-root').addEventListener('keydown',activateCardByKey);
+$('day-detail-items').addEventListener('click',event=>{const stash=event.target.closest('[data-to-reserve]');if(stash){moveToReserve(stash.dataset.toReserve);return}const card=event.target.closest('[data-content-id]');if(card)openEditor(null,'reel',card.dataset.contentId)});
+$('day-detail-items').addEventListener('keydown',activateCardByKey);
+$('global-add').addEventListener('click',()=>openEditor(monthOf(ui.selectedDate)===ui.month?ui.selectedDate:ui.month+'-01',ui.type==='all'?'reel':ui.type));
+$('prev-month').addEventListener('click',()=>changeMonth(-1));$('next-month').addEventListener('click',()=>changeMonth(1));
+$('choose-month').addEventListener('click',event=>{event.stopPropagation();$('month-picker-pop').hidden=!$('month-picker-pop').hidden});
+$('month-picker').addEventListener('change',()=>{setMonth($('month-picker').value);$('month-picker-pop').hidden=true});
+$('view-month').addEventListener('click',()=>setView('month'));$('view-list').addEventListener('click',()=>setView('list'));
+$('show-stats').addEventListener('click',()=>{statsScope='calendar';openStats()});
+$('stats-table-wrap').addEventListener('click',event=>{const btn=event.target.closest('[data-model-filter]');if(!btn)return;if(statsScope==='reserve'){clearReserveFilters();backlogUI.model=btn.dataset.modelFilter;reserveOpen=true}else{clearFilters();ui.model=btn.dataset.modelFilter}$('stats-dialog').close();render()});
+
+$('model-filter').addEventListener('click',()=>{ui.model='';render()});
+$('full-text').addEventListener('click',()=>{ui.fullText=!ui.fullText;savePrefs();renderHeader()});
+$('reset-filters').addEventListener('click',()=>{clearFilters();render()});
+$('search').addEventListener('input',()=>{ui.search=$('search').value;render()});
+$('clear-search').addEventListener('click',()=>{ui.search='';$('search').value='';render();$('search').focus()});
+for(const btn of document.querySelectorAll('[data-filter]'))btn.addEventListener('click',()=>{ui.type=btn.dataset.filter;render()});
+$('undo').addEventListener('click',undo);$('redo').addEventListener('click',redo);$('toast-undo').addEventListener('click',undo);
+$('close-editor').addEventListener('click',()=>closeEditor());$('cancel-editor').addEventListener('click',()=>closeEditor());
+$('editor-form').addEventListener('submit',saveEditor);
+$('editor-form').addEventListener('input',()=>{$('field-title').setCustomValidity('');markDirty()});
+$('editor-form').addEventListener('change',markDirty);
+$('field-models').addEventListener('input',renderSuggestions);
+for(const btn of document.querySelectorAll('[data-type]'))btn.addEventListener('click',()=>selectEditorType(btn.dataset.type));
+$('model-suggestions').addEventListener('click',event=>{const btn=event.target.closest('[data-add-model]');if(!btn)return;const values=$('field-models').value.split(',').map(s=>s.trim()).filter(Boolean);values.push(btn.dataset.addModel);$('field-models').value=canonicalModels(values).join(', ');renderSuggestions();markDirty()});
+$('delete-content').addEventListener('click',deleteContent);$('duplicate-content').addEventListener('click',duplicateContent);
+$('make-photo').addEventListener('click',()=>createRelated('photo'));$('make-story').addEventListener('click',()=>createRelated('story'));
+$('editor').addEventListener('cancel',event=>{event.preventDefault();closeEditor()});
+for(const btn of document.querySelectorAll('[data-close]'))btn.addEventListener('click',()=>$(btn.dataset.close).close());
+for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom){if(dialog.id==='editor')closeEditor();else dialog.close()}});
+for(const type of Object.keys(TYPES))$('day-add-'+type).addEventListener('click',()=>openEditor(openedDay,type));
+$('copy-day').addEventListener('click',copyDay);
+$('download-html').addEventListener('click',exportHTML);
+$('file-menu-toggle').addEventListener('click',event=>{event.stopPropagation();$('file-menu').hidden=!$('file-menu').hidden;$('file-menu-toggle').setAttribute('aria-expanded',String(!$('file-menu').hidden))});
+$('file-menu').addEventListener('click',event=>{const btn=event.target.closest('[data-action]');if(!btn)return;closeMenus();if(btn.dataset.action==='export-json')exportJSON();if(btn.dataset.action==='import')openImport();if(btn.dataset.action==='print')window.print();if(btn.dataset.action==='help')$('help-dialog').showModal()});
+$('help-button').addEventListener('click',()=>$('help-dialog').showModal());
+$('choose-import-file').addEventListener('click',()=>$('import-file').click());$('import-file').addEventListener('change',()=>readImport($('import-file').files[0]));$('confirm-import').addEventListener('click',confirmImport);
+document.addEventListener('click',event=>{if(!event.target.closest('.toolbar-menu')&&!event.target.closest('.month-picker-wrap'))closeMenus()});
+document.addEventListener('keydown',event=>{
+ if(event.key==='Escape')closeMenus();
+ const isField=event.target.matches('input,textarea,select,[contenteditable="true"]');
+ if($('editor').open&&(event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();$('editor-form').requestSubmit();return}
+ if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z'&&!isField&&!document.querySelector('dialog[open]')){event.preventDefault();event.shiftKey?redo():undo()}
+});
+window.addEventListener('beforeunload',event=>{if(editorDirty||$('quick-title').value.trim()||$('quick-desc').value.trim()||!storageAvailable||saveError){event.preventDefault();event.returnValue=''}});
+
+$('toggle-reserve').addEventListener('click',()=>setReserveOpen(!reserveOpen));$('reserve-close').addEventListener('click',()=>setReserveOpen(false));
+$('reserve-quick-form').addEventListener('submit',quickReserve);
+$('quick-title').addEventListener('input',()=>$('quick-title').setCustomValidity(''));
+$('reserve-full-editor').addEventListener('click',()=>{const preset={date:null,type:$('quick-type').value,title:$('quick-title').value,description:$('quick-desc').value,models:inferModels($('quick-title').value),time:'',link:''};openEditor(null,preset.type,null,preset);quickEditorSource=quickDraftSnapshot()});
+$('reserve-search').addEventListener('input',()=>{backlogUI.search=$('reserve-search').value;renderReserve()});
+$('reserve-type-filters').addEventListener('click',event=>{const btn=event.target.closest('[data-reserve-type]');if(btn){backlogUI.type=btn.dataset.reserveType;renderReserve()}});
+$('reserve-model-filter').addEventListener('click',()=>{backlogUI.model='';renderReserve()});
+$('reserve-items').addEventListener('click',event=>{const btn=event.target.closest('[data-schedule]');if(btn){openSchedule(btn.dataset.schedule);return}if(event.target.closest('#clear-reserve-filters')){clearReserveFilters();renderReserve();return}const card=event.target.closest('[data-content-id]');if(card)openEditor(null,'reel',card.dataset.contentId)});
+$('reserve-items').addEventListener('keydown',activateCardByKey);
+$('schedule-form').addEventListener('submit',scheduleItem);
+$('schedule-previous').addEventListener('click',()=>{const it=state.items.find(it=>it.id===scheduleId);if(it?.lastDate){$('schedule-date').value=it.lastDate;$('schedule-time').value=it.lastTime||''}});
+for(const btn of document.querySelectorAll('[data-placement]'))btn.addEventListener('click',()=>setPlacement(btn.dataset.placement));
+for(const btn of document.querySelectorAll('[data-stats-scope]'))btn.addEventListener('click',()=>{statsScope=btn.dataset.statsScope;openStats()});
+$('import-previous').addEventListener('click',openImport);
+$('dismiss-migration').addEventListener('click',()=>{prefs.hideMigration=true;savePrefs();$('migration-hint').hidden=true});
+
+// Initialise and make a local copy where supported. Exports never depend on that copy.
+if(storageAvailable){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){saveError=true}}
+updateSaveState();render();
+if(loadWarning)showToast(loadWarning);
+
+</script>
+</body>
+</html>
